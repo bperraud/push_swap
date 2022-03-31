@@ -20,18 +20,22 @@ int	main(int argc, char **argv)
 	t_list *lst;
 
 	//lst = ft_lstnew(1);
-	lst = ft_lstnew(1);
+	lst = lstnew(1);
 
 	i = 0;
 	while (i++ < argc - 1)
 	{
 		//printf("%i",  atoi(argv[i]));
 		//ft_lstadd_back(&lst, ft_lstnew(*((int*)atoi(argv[i]))));
-		ft_lstadd_back(&lst, ft_lstnew(atoi(argv[i])));
+		lstadd_back(&lst, lstnew(atoi(argv[i])));
 	}
 
-	ft_lstadd_front(&lst, ft_lstnew(-1));
-	list_printf(lst);
+	lstadd_front(&lst, lstnew(-1));
+	lst_print(lst);
+
+	printf("---\n");
+	lstdelete_front(&lst);
+	lst_print(lst);
 
 	return (0);
 }

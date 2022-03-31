@@ -6,12 +6,12 @@
 #    By: bperraud <bperraud@student.s19.be>         +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/03/27 16:51:35 by bperraud          #+#    #+#              #
-#    Updated: 2022/03/27 23:50:32 by bperraud         ###   ########.fr        #
+#    Updated: 2022/03/31 15:35:56 by bperraud         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 ### SOURCES FILES ###
-SRC			    = main.c linked_list.c operation.c
+SRC			    = main.c linked_list.c 
 
 ### PATHS ###
 SDIR			= src
