@@ -14,12 +14,15 @@
 
 void	lst_print(t_list *lst)
 {
-	while (lst->next)
+	if (lst)
 	{
+		while (lst->next)
+		{
+			printf("%i\n", lst->content);
+			lst = lst->next;
+		}
 		printf("%i\n", lst->content);
-		lst = lst->next;
 	}
-	printf("%i\n", lst->content);
 }
 
 void	lstdel_front(t_list *lst)
@@ -43,7 +46,6 @@ void	lstiter(t_list *lst, void (*f)(void*))
 	}
 }
 
-
 void	lstclear(t_list **lst)
 {
 	t_list	*temp;
@@ -59,7 +61,6 @@ void	lstclear(t_list **lst)
 	}
 	*lst = NULL;
 }
-
 
 t_list	*lstmap(t_list *lst, void *(*f)(void *))
 {

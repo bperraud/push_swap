@@ -13,22 +13,24 @@
 #include "../include/push_swap.h"
 
 int	main(int argc, char **argv)
-{
-	int	i;
-	int array[] = {5, 3, 4, 1};
-	
+{	
 	t_list *lst;
 
 	lst = lst_init(argc, argv, lst);
-	//lst = ft_lstnew(1);
 
+	//lstadd_front(&lst, lstnew(-1));
 	lstadd_front(&lst, lstnew(-1));
 	lst_print(lst);
 
-	printf("---\n");
-	//lstdelete_front(&lst);
-
+	printf("swap : ---\n");
+	swap(lst);
 	lst_print(lst);
+	printf("size : %i\n", lstsize(lst));
+
+	printf("rotate : ---\n");
+	rotate(&lst);
+	lst_print(lst);
+	printf("size : %i\n", lstsize(lst));
 
 	lstclear(&lst);
 	return (0);

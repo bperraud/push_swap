@@ -22,13 +22,3 @@ void	sorted(int list[], int size)
 	}
 	return (1);
 }
-
-void	lstdelete_front(t_list **lst)
-{
-	t_list	*list;
-
-	list = *lst;
-	*lst = (*lst)->next;
-	(*lst)->previous = NULL;
-	free(list);
-}
