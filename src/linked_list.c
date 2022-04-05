@@ -12,7 +12,6 @@
 
 #include "../include/push_swap.h"
 
-
 void	lstadd_back(t_list **alst, t_list *new)
 {
 	t_list	*list;
@@ -82,73 +81,4 @@ int	lstsize(t_list *lst)
 		size += 1;
 	}
 	return (size);
-}
-
-
-void	lstiter(t_list *lst, void (*f)(void*))
-{
-	if (lst && f)
-	{
-		while (lst->next)
-		{
-			(f)(lst->content);
-			lst = lst->next;
-		}
-		(f)(lst->content);
-	}
-}
-
-
-void	lstclear(t_list **lst)
-{
-	t_list	*temp;
-
-	if (lst)
-	{
-		while (*lst)
-		{
-			temp = (*lst)->next;
-			free(*lst);
-			*lst = temp;
-		}
-	}
-	*lst = NULL;
-}
-
-
-void	lstdelone(t_list *lst, void (*del)(void*))
-{
-	if (lst && del)
-	{
-		(*del)(lst->content);
-		free(lst);
-	}
-}
-
-
-t_list	*lstmap(t_list *lst, void *(*f)(void *))
-{
-	t_list	*plist;
-	t_list	*elem;
-
-	plist = NULL;
-	if (lst && f)
-	{
-		while (lst)
-		{
-			elem = lstnew((*f)(lst->content));
-			if (elem)
-			{
-				lstadd_back(&plist, elem);
-				lst = lst->next;
-			}
-			else
-			{
-				lstclear(&plist);
-				return (NULL);
-			}
-		}
-		return (plist);
-	}
-	return (NULL);
 }

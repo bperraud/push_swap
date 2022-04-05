@@ -22,6 +22,10 @@ typedef struct s_list
 }	t_list;
 
 
+
+//utils
+t_list	*lst_init(int argc, char **argv, t_list *lst);
+
 //list
 void	lst_print(t_list *lst);
 void	lstadd_back(t_list **alst, t_list *new);
@@ -30,5 +34,4 @@ t_list	*lstlast(t_list *lst);
 t_list	*lstnew(void *content);
 int		lstsize(t_list *lst);
 void	lstdel_front(t_list *lst);
-void	lstdelone(t_list *lst, void (*del)(void*));
 void	lstclear(t_list **lst);
