@@ -29,4 +29,6 @@ void	lstadd_front(t_list **alst, t_list *new);
 t_list	*lstlast(t_list *lst);
 t_list	*lstnew(void *content);
 int		lstsize(t_list *lst);
-void	lstdelete_front(t_list **lst);
+void	lstdel_front(t_list *lst);
+void	lstdelone(t_list *lst, void (*del)(void*));
+void	lstclear(t_list **lst);
