@@ -21,6 +21,10 @@ typedef struct s_list
 }	t_list;
 
 
+//main
+void	exit_error();
+int		check_argument(int argc, char **argv);
+
 //operation
 void	swap(t_list *lst);
 void	push(t_list **a, t_list **b);

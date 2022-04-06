@@ -14,34 +14,56 @@
 
 int	main(int argc, char **argv)
 {	
-	t_list *lst;
-	t_list *b;
+	t_list *stack_a;
+	t_list *stack_b;
 
-	lst = lst_init(argc, argv);
-	b = lst_init(argc, argv);
+
+	if (argc < 2 || !check_argument(argc, argv))
+		return (0);
+
+
+	stack_a = lst_init(argc, argv);
+
+	stack_b = lst_init(argc, argv);
+
 
 	//lstadd_front(&lst, lstnew(-1));
-	lstadd_front(&lst, lstnew(-1));
-	lst_print(lst);
+	lstadd_front(&stack_a, lstnew(-1));
+	lst_print(stack_a);
 
 	printf("swap : ---\n");
-	swap(lst);
-	lst_print(lst);
-	printf("size : %i\n", lstsize(lst));
+	swap(stack_a);
+	lst_print(stack_a);
+	printf("size : %i\n", lstsize(stack_a));
 
 	printf("rotate : ---\n");
-	rotate(&lst);
-	lst_print(lst);
-	printf("size : %i\n", lstsize(lst));
+	rotate(&stack_a);
+	lst_print(stack_a);
+	printf("size : %i\n", lstsize(stack_a));
 
 	printf("push a to b : ---\n");
-	push(&lst, &b);
+	push(&stack_a, &stack_b);
 
-	lst_print(lst);
+	lst_print(stack_a);
 	printf("------\n");
-	lst_print(b);
-	printf("size : %i\n", lstsize(lst));
+	lst_print(stack_b);
+	printf("size : %i\n", lstsize(stack_a));
 
-	lstclear(&lst);
+	lstclear(&stack_a);
 	return (0);
+}
+
+
+int	check_argument(int argc, char **argv)
+{
+	return (1);
+
+
+}
+
+
+void	exit_error()
+{
+	ft_putendl_fd("Error", 1);
+	exit(EXIT_FAILURE);
 }

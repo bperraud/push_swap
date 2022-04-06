@@ -6,9 +6,13 @@
 #    By: bperraud <bperraud@student.s19.be>         +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/03/27 16:51:35 by bperraud          #+#    #+#              #
-#    Updated: 2022/04/06 00:54:16 by bperraud         ###   ########.fr        #
+#    Updated: 2022/04/06 16:28:55 by bperraud         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
+
+
+# ne recompile pas avec changement libft !
+
 
 ### SOURCES FILES ###
 SRC			    = main.c linked_list.c linked_list_2.c utils.c operation.c
