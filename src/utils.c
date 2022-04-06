@@ -13,9 +13,10 @@
 #include "../include/push_swap.h"
 #include "../libft/libft.h"
 
-t_list	*lst_init(int argc, char **argv, t_list *lst)
+t_list	*lst_init(int argc, char **argv)
 {
-	int	i;
+	int		i;
+	t_list	*lst;
 
 	i = 1;
 	lst = lstnew(ft_atoi(argv[i]));

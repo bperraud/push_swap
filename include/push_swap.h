@@ -10,7 +10,6 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-
 #include "stdlib.h"
 #include "stdio.h"
 
@@ -22,9 +21,14 @@ typedef struct s_list
 }	t_list;
 
 
+//operation
+void	swap(t_list *lst);
+void	push(t_list **a, t_list **b);
+void	rotate(t_list **lst);
+
 
 //utils
-t_list	*lst_init(int argc, char **argv, t_list *lst);
+t_list	*lst_init(int argc, char **argv);
 
 //list
 void	lst_print(t_list *lst);
@@ -33,5 +37,5 @@ void	lstadd_front(t_list **alst, t_list *new);
 t_list	*lstlast(t_list *lst);
 t_list	*lstnew(void *content);
 int		lstsize(t_list *lst);
-void	lstdel_front(t_list *lst);
+void	lstdel_front(t_list **lst);
 void	lstclear(t_list **lst);

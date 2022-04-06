@@ -25,12 +25,12 @@ void	lst_print(t_list *lst)
 	}
 }
 
-void	lstdel_front(t_list *lst)
+void	lstdel_front(t_list **lst)
 {
 	t_list	*list;
 
-	lst = lst->next;
-	lst->previous = NULL;
+	*lst = (*lst)->next;
+	(*lst)->previous = NULL;
 }
 
 void	lstiter(t_list *lst, void (*f)(void*))

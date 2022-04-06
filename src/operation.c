@@ -26,14 +26,14 @@ void	swap(t_list *lst)
 	lst->content = temp;
 }
 
-/*
-void	push(t_list *a, t_list *b)
-{
-	t_list *temp;
 
-	temp = 
+//push top of stack a to b
+void	push(t_list **a, t_list **b)
+{
+	lstadd_back(b, lstnew((*a)->content));
+	lstdel_front(a);
 }
-*/
+
 
 //  top number in A goes to bottom of A
 // interet de la liste doublement chainé sans référence à la fin de liste ? (aucun je pense)
@@ -50,4 +50,3 @@ void	rotate(t_list **lst)
 	(*lst)->previous = last;
 	*lst = last;
 }
-

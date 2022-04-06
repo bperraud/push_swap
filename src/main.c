@@ -15,8 +15,10 @@
 int	main(int argc, char **argv)
 {	
 	t_list *lst;
+	t_list *b;
 
-	lst = lst_init(argc, argv, lst);
+	lst = lst_init(argc, argv);
+	b = lst_init(argc, argv);
 
 	//lstadd_front(&lst, lstnew(-1));
 	lstadd_front(&lst, lstnew(-1));
@@ -30,6 +32,14 @@ int	main(int argc, char **argv)
 	printf("rotate : ---\n");
 	rotate(&lst);
 	lst_print(lst);
+	printf("size : %i\n", lstsize(lst));
+
+	printf("push a to b : ---\n");
+	push(&lst, &b);
+
+	lst_print(lst);
+	printf("------\n");
+	lst_print(b);
 	printf("size : %i\n", lstsize(lst));
 
 	lstclear(&lst);
