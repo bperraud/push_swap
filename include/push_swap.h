@@ -20,10 +20,14 @@ typedef struct s_list
 	struct s_list	*previous;
 }	t_list;
 
-
 //main
 void	exit_error();
 int		check_argument(int argc, char **argv);
+int		is_sorted(t_list *lst);
+
+//check
+int		has_dupplicate(t_list *lst);
+
 
 //operation
 void	swap(t_list *lst);

@@ -6,7 +6,7 @@
 #    By: bperraud <bperraud@student.s19.be>         +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/03/27 16:51:35 by bperraud          #+#    #+#              #
-#    Updated: 2022/04/06 16:28:55 by bperraud         ###   ########.fr        #
+#    Updated: 2022/04/06 23:04:05 by bperraud         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,7 +15,7 @@
 
 
 ### SOURCES FILES ###
-SRC			    = main.c linked_list.c linked_list_2.c utils.c operation.c
+SRC			    = main.c linked_list.c linked_list_2.c utils.c operation.c check.c push_swap.c
 
 ### PATHS ###
 SDIR			= src
