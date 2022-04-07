@@ -19,11 +19,21 @@ void	push_swap(t_list *stack_a)
 
 	size = lstsize(stack_a);
 
+
+
 	if (size == 2)
 		ft_putendl_fd("sa", 1);
 	else if (size == 3)
 		three_push_swap(stack_a);
 
+}
+
+void	instruction(t_list *a, char *text)
+{
+	ft_putendl_fd(text, 1);
+	if (ft_strncmp(text, "sa", 2))
+		;
+		//push(a, b);;
 }
 
 void	three_push_swap(t_list *a)
@@ -46,4 +56,9 @@ void	three_push_swap(t_list *a)
 	}
 	if (a->content < a->next->content && a->content > a->next->next->content)
 		ft_putendl_fd("rra", 1);
+}
+
+void	sort(t_list *a)
+{
+	;
 }

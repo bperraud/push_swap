@@ -18,8 +18,8 @@ t_list	*lst_init(int argc, char **argv)
 	int		i;
 	t_list	*lst;
 
-	i = 1;
-	lst = lstnew(ft_atoi(argv[i]));
+	lst = malloc(sizeof(t_list));
+	i = 0;
 	while (i++ < argc - 1)
 		lstadd_back(&lst, lstnew(ft_atoi(argv[i])));
 	return (lst);

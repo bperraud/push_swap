@@ -11,15 +11,18 @@
 /* ************************************************************************** */
 
 #include "../include/push_swap.h"
+#include "../libft/get_next_line_bonus.h"
 
 int	main(int argc, char **argv)
 {	
 	t_list *stack_a;
 	t_list *stack_b;
-
+	
 	if (argc < 2)
 		return (0);
 	stack_a = lst_init(argc, argv);
+	lst_print(stack_a);
+
 	/*
 	if (is_sorted(stack_a))
 		return (0);
@@ -29,6 +32,7 @@ int	main(int argc, char **argv)
 	printf("is_sorted : %i\n", is_sorted(stack_a));	
 
 	push_swap(stack_a);
+
 	return (0);
 }
 
