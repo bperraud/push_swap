@@ -20,8 +20,11 @@ typedef struct s_list
 	struct s_list	*previous;
 }	t_list;
 
+
+//push_swap
+
+
 //main
-void	exit_error();
 int		check_argument(int argc, char **argv);
 int		is_sorted(t_list *lst);
 
@@ -36,6 +39,8 @@ void	rotate(t_list **lst);
 
 
 //utils
+void	exit_error(t_list *stack_a, t_list *stack_b);
+int		atoi_lst(const char *str, t_list *stack_a);
 t_list	*lst_init(int argc, char **argv);
 
 //list
