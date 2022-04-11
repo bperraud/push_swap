@@ -16,54 +16,58 @@
 
 int	main(int argc, char **argv)
 {	
-	t_list *stack_a;
-	t_list *stack_b;
-	
+	//t_list *stack_a;
+	//t_list *stack_b;
+
+	t_stacks *stacks;
+
 	if (argc < 2)
 		return (0);
-		
-	stack_a = lst_init(argc, argv);
-	stack_b = malloc(sizeof(t_list));
-	lst_print(stack_a);
+
+	stacks = malloc(sizeof(t_stacks));
+	stacks->a = lst_init(argc, argv);
+	stacks->b = malloc(sizeof(t_list));
+
+	lst_print(stacks->a);
 	
-	if (has_dupplicate(stack_a))
+
+	if (has_dupplicate(stacks->a))
 	{
 		printf("has_dupplicate");
 		ft_putendl_fd("Error", 2);
 		return (0);
 	}
 
-	if (is_sorted(stack_a) )
+	if (is_sorted(stacks->a) )
 	{
 		printf("sorted");
 		return (0);
 	}
 	
-	/*
+	
 	printf("swap : ---\n");
-	swap(stack_a);
-	lst_print(stack_a);
-	printf("size : %i\n", lstsize(stack_a));
+	swap(stacks->a);
+	lst_print(stacks->a);
+	printf("size : %i\n", lstsize(stacks->a));
 
 	printf("rotate : ---\n");
-	rotate(&stack_a);
-	lst_print(stack_a);
-	printf("size : %i\n", lstsize(stack_a));
+	rotate(&stacks->a);
+	lst_print(stacks->a);
+	printf("size : %i\n", lstsize(stacks->a));
 
 	printf("push a to b : ---\n");
-	push(&stack_a, &stack_b);
+	push(&stacks->a, &stacks->b);
 
-	lst_print(stack_a);
+	lst_print(stacks->a);
 	printf("------\n");
-	lst_print(stack_b);
-	printf("size : %i\n", lstsize(stack_a));
+	lst_print(stacks->b);
+	printf("size : %i\n", lstsize(stacks->a));
 
-	lstclear(&stack_a);
 
-	printf("has dupplicate : %i\n", has_dupplicate(stack_a));
-	printf("is_sorted : %i\n", is_sorted(stack_a));
-	*/
-	//push_swap(stack_a, stack_b);
+	lstclear(&stacks->a);
+	lstclear(&stacks->b);
+
+	free(stacks);
 
 	return (0);
 }

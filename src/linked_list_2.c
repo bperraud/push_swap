@@ -12,6 +12,21 @@
 
 #include "../include/push_swap.h"
 
+t_list	*lst_init(int argc, char **argv)
+{
+	int		i;
+	t_list	*lst;
+
+	lst = lstnew(atoi_lst(argv[1], lst));
+
+	//lstadd_back(&lst, lstnew(atoi_lst(argv[i], lst)));
+
+	i = 1;
+	while (i++ < argc - 1)
+		lstadd_back(&lst, lstnew(atoi_lst(argv[i], lst)));
+	return (lst);
+}
+
 void	lst_print(t_list *lst)
 {
 	if (lst)
@@ -30,21 +45,10 @@ void	lstdel_front(t_list **lst)
 	t_list	*list;
 
 	*lst = (*lst)->next;
+	free((*lst)->previous);
 	(*lst)->previous = NULL;
 }
 
-void	lstiter(t_list *lst, void (*f)(void*))
-{
-	if (lst && f)
-	{
-		while (lst->next)
-		{
-			(f)(lst->content);
-			lst = lst->next;
-		}
-		(f)(lst->content);
-	}
-}
 
 void	lstclear(t_list **lst)
 {
@@ -62,29 +66,3 @@ void	lstclear(t_list **lst)
 	*lst = NULL;
 }
 
-t_list	*lstmap(t_list *lst, void *(*f)(void *))
-{
-	t_list	*plist;
-	t_list	*elem;
-
-	plist = NULL;
-	if (lst && f)
-	{
-		while (lst)
-		{
-			elem = lstnew((*f)(lst->content));
-			if (elem)
-			{
-				lstadd_back(&plist, elem);
-				lst = lst->next;
-			}
-			else
-			{
-				lstclear(&plist);
-				return (NULL);
-			}
-		}
-		return (plist);
-	}
-	return (NULL);
-}

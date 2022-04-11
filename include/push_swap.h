@@ -15,10 +15,17 @@
 
 typedef struct s_list
 {
-	void			*content;
+	int				content;
 	struct s_list	*next;
 	struct s_list	*previous;
 }	t_list;
+
+
+typedef struct s_stacks
+{
+	t_list	*a;
+	t_list	*b;
+}	t_stacks;
 
 
 //push_swap
@@ -48,7 +55,7 @@ void	lst_print(t_list *lst);
 void	lstadd_back(t_list **alst, t_list *new);
 void	lstadd_front(t_list **alst, t_list *new);
 t_list	*lstlast(t_list *lst);
-t_list	*lstnew(void *content);
+t_list	*lstnew(int content);
 int		lstsize(t_list *lst);
 void	lstdel_front(t_list **lst);
 void	lstclear(t_list **lst);

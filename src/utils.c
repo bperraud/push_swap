@@ -13,19 +13,6 @@
 #include "../include/push_swap.h"
 #include "../libft/libft.h"
 
-t_list	*lst_init(int argc, char **argv)
-{
-	int		i;
-	t_list	*lst;
-
-	lst = lstnew(atoi_lst(argv[1], lst));
-	i = 1;
-	while (i++ < argc - 1)
-		lstadd_back(&lst, lstnew(atoi_lst(argv[i], lst)));
-	return (lst);
-}
-
-
 int	atoi_lst(const char *str, t_list *stack_a)
 {
 	int				i;
@@ -54,7 +41,6 @@ int	atoi_lst(const char *str, t_list *stack_a)
 		exit_error(stack_a, NULL);
 	return ((int)(res * neg));
 }
-
 
 void	exit_error(t_list *stack_a, t_list *stack_b)
 {

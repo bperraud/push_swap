@@ -54,7 +54,7 @@ t_list	*lstlast(t_list *lst)
 	return (lst);
 }
 
-t_list	*lstnew(void *content)
+t_list	*lstnew(int content)
 {
 	t_list	*list;
 
