@@ -61,8 +61,8 @@ int	main(int argc, char **argv)
 	lst_print(stacks->a);
 	printf("------\n");
 	lst_print(stacks->b);
-	printf("size : %i\n", stacks->a->size);
-
+	printf("size a : %i\n", stacks->a->size);
+	printf("size b : %i\n", stacks->b->size);
 
 	lstclear(&stacks->a);
 	lstclear(&stacks->b);

@@ -26,7 +26,6 @@ typedef struct s_stacks
 {
 	t_list	*a;
 	t_list	*b;
-
 }	t_stacks;
 
 

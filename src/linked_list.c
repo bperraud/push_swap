@@ -31,6 +31,9 @@ void	lstadd_back(t_list **alst, t_list *new)
 
 void	lstadd_front(t_list **alst, t_list *new)
 {
+	int	size;
+
+	size = (*alst)->size;
 	if (!*alst)
 	{
 		*alst = new;
@@ -44,7 +47,7 @@ void	lstadd_front(t_list **alst, t_list *new)
 		(*alst)->previous = new;
 		*alst = new;
 	}
-	(*alst)->size += 1;
+	(*alst)->size = (*alst)->size + 1;
 }
 
 t_list	*lstlast(t_list *lst)

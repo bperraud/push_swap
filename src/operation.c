@@ -17,13 +17,16 @@
 // swap the top two numbers
 void	swap(t_list *lst)
 {
-	int	temp;
+	int		temp;
 	t_list	*list;
+	int		size;
 
-	list = lst->next;	// 2e élement
+	size = lst->size;
+	list = lst->next;	
 	temp = list->content;
 	list->content = lst->content;
 	lst->content = temp;
+	lst->size = size;
 }
 
 
@@ -39,14 +42,15 @@ void	push(t_list **a, t_list **b)
 // interet de la liste doublement chainé sans référence à la fin de liste ? (aucun je pense)
 void	rotate(t_list **lst)
 {
+	int		size;
 	t_list	*last;
 
+	size = (*lst)->size;
 	last = lstlast(*lst);
-
 	last->previous->next = NULL;
 	last->previous = NULL;
 	last->next = *lst;
-
 	(*lst)->previous = last;
 	*lst = last;
+	(*lst)->size = size;
 }

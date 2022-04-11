@@ -17,8 +17,7 @@ t_list	*lst_init(int argc, char **argv)
 	int		i;
 	t_list	*lst;
 
-	lst->size = 0;
-	lstadd_back(&lst, lstnew(atoi_lst(argv[i], lst)));
+	lst = lstnew(atoi_lst(argv[1], lst));
 	i = 1;
 	while (i++ < argc - 1)
 		lstadd_back(&lst, lstnew(atoi_lst(argv[i], lst)));
