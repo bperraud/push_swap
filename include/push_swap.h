@@ -18,6 +18,7 @@ typedef struct s_list
 	int				content;
 	struct s_list	*next;
 	struct s_list	*previous;
+	int				size;
 }	t_list;
 
 
@@ -25,6 +26,7 @@ typedef struct s_stacks
 {
 	t_list	*a;
 	t_list	*b;
+
 }	t_stacks;
 
 

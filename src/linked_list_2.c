@@ -18,9 +18,7 @@ t_list	*lst_init(int argc, char **argv)
 	t_list	*lst;
 
 	lst = lstnew(atoi_lst(argv[1], lst));
-
 	//lstadd_back(&lst, lstnew(atoi_lst(argv[i], lst)));
-
 	i = 1;
 	while (i++ < argc - 1)
 		lstadd_back(&lst, lstnew(atoi_lst(argv[i], lst)));
@@ -47,6 +45,7 @@ void	lstdel_front(t_list **lst)
 	*lst = (*lst)->next;
 	free((*lst)->previous);
 	(*lst)->previous = NULL;
+	(*lst)->size -= 1;
 }
 
 

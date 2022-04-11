@@ -48,12 +48,12 @@ int	main(int argc, char **argv)
 	printf("swap : ---\n");
 	swap(stacks->a);
 	lst_print(stacks->a);
-	printf("size : %i\n", lstsize(stacks->a));
+	printf("size : %i\n", stacks->a->size);
 
 	printf("rotate : ---\n");
 	rotate(&stacks->a);
 	lst_print(stacks->a);
-	printf("size : %i\n", lstsize(stacks->a));
+	printf("size : %i\n", stacks->a->size);
 
 	printf("push a to b : ---\n");
 	push(&stacks->a, &stacks->b);
@@ -61,7 +61,7 @@ int	main(int argc, char **argv)
 	lst_print(stacks->a);
 	printf("------\n");
 	lst_print(stacks->b);
-	printf("size : %i\n", lstsize(stacks->a));
+	printf("size : %i\n", stacks->a->size);
 
 
 	lstclear(&stacks->a);
@@ -87,12 +87,12 @@ int	main2()
 	printf("swap : ---\n");
 	swap(stack_a);
 	lst_print(stack_a);
-	printf("size : %i\n", lstsize(stack_a));
+
 
 	printf("rotate : ---\n");
 	rotate(&stack_a);
 	lst_print(stack_a);
-	printf("size : %i\n", lstsize(stack_a));
+
 
 	printf("push a to b : ---\n");
 	push(&stack_a, &stack_b);
@@ -100,7 +100,7 @@ int	main2()
 	lst_print(stack_a);
 	printf("------\n");
 	lst_print(stack_b);
-	printf("size : %i\n", lstsize(stack_a));
+
 
 	lstclear(&stack_a);
 }

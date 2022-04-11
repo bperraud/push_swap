@@ -16,7 +16,7 @@ void	lstadd_back(t_list **alst, t_list *new)
 {
 	t_list	*list;
 
-	if (!*alst)
+	if (!(*alst)->size)		// pas oublier l'initialisation
 	{
 		*alst = new;
 		return ;
@@ -26,6 +26,7 @@ void	lstadd_back(t_list **alst, t_list *new)
 		list = list->next;
 	list->next = new;
 	new->previous = list;
+	(*alst)->size += 1;
 }
 
 void	lstadd_front(t_list **alst, t_list *new)
@@ -43,6 +44,7 @@ void	lstadd_front(t_list **alst, t_list *new)
 		(*alst)->previous = new;
 		*alst = new;
 	}
+	(*alst)->size += 1;
 }
 
 t_list	*lstlast(t_list *lst)
@@ -64,9 +66,11 @@ t_list	*lstnew(int content)
 	list->next = NULL;
 	list->previous = NULL;
 	list->content = content;
+	list->size = 1;
 	return (list);
 }
 
+/*
 int	lstsize(t_list *lst)
 {
 	int	size;
@@ -82,3 +86,4 @@ int	lstsize(t_list *lst)
 	}
 	return (size);
 }
+*/
