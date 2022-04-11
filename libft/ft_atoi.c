@@ -10,8 +10,15 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../include/push_swap.h"
-#include "libft.h"
+#include "libft.h" 
+
+static int	space(const char *str, int i)
+{
+	while (str[i] == 32 || str[i] == '\t' || str[i] == '\n'
+		|| str[i] == '\r' || str[i] == '\v' || str[i] == '\f')
+		i++;
+	return (i);
+}
 
 int	ft_atoi(const char *str)
 {
@@ -21,7 +28,7 @@ int	ft_atoi(const char *str)
 
 	neg = 1;
 	res = 0;
-	i = 0;
+	i = space(str, 0);
 	if (str[i] == '-')
 	{
 		neg *= -1;
@@ -32,12 +39,12 @@ int	ft_atoi(const char *str)
 	while (str[i] >= '0' && str[i] <= '9')
 	{
 		if ((res * 10 > INT_MAX) && neg == 1)
-			exit_error();
+			return (-1);
 		if ((res * 10 - 1 > INT_MAX) && neg == -1)
-			exit_error();
-		res = res * 10 + str[i++] - '0';
+			return (0);
+		res = res * 10 + str[i] - '0';
+		i++;
 	}
-	if (str[i] != '\0' || ((str[0] == '-' || str[0] == '+') && i == 1))
-		exit_error();
 	return ((int)(res * neg));
 }
+
