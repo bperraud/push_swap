@@ -44,9 +44,7 @@ void	lstdel_front(t_list **lst)
 	*lst = (*lst)->next;
 	free((*lst)->previous);
 	(*lst)->previous = NULL;
-	(*lst)->size -= 1;
 }
-
 
 void	lstclear(t_list **lst)
 {
@@ -61,6 +59,6 @@ void	lstclear(t_list **lst)
 			*lst = temp;
 		}
 	}
-	*lst = NULL;
+	*lst = NULL;		// utile ? 
 }
 

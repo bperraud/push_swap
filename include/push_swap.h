@@ -18,16 +18,8 @@ typedef struct s_list
 	int				content;
 	struct s_list	*next;
 	struct s_list	*previous;
-	int				size;
+	int				is_empty;
 }	t_list;
-
-
-typedef struct s_stacks
-{
-	t_list	*a;
-	t_list	*b;
-}	t_stacks;
-
 
 //push_swap
 
@@ -44,7 +36,7 @@ int		has_dupplicate(t_list *lst);
 void	swap(t_list *lst);
 void	push(t_list **a, t_list **b);
 void	rotate(t_list **lst);
-
+void	r_rotate(t_list **lst);
 
 //utils
 void	exit_error(t_list *stack_a, t_list *stack_b);
