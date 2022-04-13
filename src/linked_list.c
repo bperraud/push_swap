@@ -16,7 +16,7 @@ void	lstadd_back(t_list **alst, t_list *new)
 {
 	t_list	*list;			// l'utilité ? 
 
-	if ((*alst)->is_empty == 1)
+	if ((*alst)->is_empty == 1)			// vraiment pas dingue
 	{
 		*alst = new;
 		(*alst)->is_empty = 0;
@@ -34,6 +34,7 @@ void	lstadd_front(t_list **alst, t_list *new)
 	if ((*alst)->is_empty == 1)
 	{
 		*alst = new;
+		(*alst)->is_empty = 0;
 		return ;
 	}
 	if (new)

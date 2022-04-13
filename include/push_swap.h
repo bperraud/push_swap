@@ -49,6 +49,7 @@ t_list	*lstnew(int content);
 int		lstsize(t_list *lst);
 void	lstdel_front(t_list **lst);
 void	lstclear(t_list **lst);
+int		lstmax(t_list *lst);
 
 //push_swap
 void	push_swap(t_list **stack_a, t_list **stack_b);

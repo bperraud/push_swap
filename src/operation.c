@@ -17,7 +17,6 @@
 // swap the top two numbers
 void	swap(t_list *lst)
 {
-	printf("swap\n");
 	int		temp;
 	t_list	*list;
 
@@ -31,7 +30,6 @@ void	swap(t_list *lst)
 //push top of stack a to b
 void	push(t_list **a, t_list **b)
 {
-	printf("push\n");
 	lstadd_front(b, lstnew((*a)->content));
 	lstdel_front(a);
 }
@@ -41,7 +39,6 @@ void	push(t_list **a, t_list **b)
 // interet de la liste doublement chainé sans référence à la fin de liste ? (aucun je pense)
 void	r_rotate(t_list **lst)
 {
-	printf("rrotate\n");
 	t_list	*last;
 
 	last = lstlast(*lst);
@@ -54,13 +51,10 @@ void	r_rotate(t_list **lst)
 
 void	rotate(t_list **lst)
 {
-	printf("rotate\n");
 	t_list	*last;
 	t_list	*save;
 
 	save = (*lst)->next;
-
-
 	last = lstlast(*lst);
 	(*lst)->next->previous = NULL;
 	(*lst)->previous = last;

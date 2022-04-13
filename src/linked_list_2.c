@@ -42,7 +42,10 @@ void	lstdel_front(t_list **lst)
 	t_list	*list;
 
 	if (lstsize(*lst) == 1)
+	{
 		(*lst)->is_empty = 1;
+		return ;
+	}
 	*lst = (*lst)->next;
 	free((*lst)->previous);
 	(*lst)->previous = NULL;
@@ -64,3 +67,19 @@ void	lstclear(t_list **lst)
 	*lst = NULL;		// utile ? 
 }
 
+int	lstmax(t_list *lst)
+{	
+	int	max;
+
+	max = INT_MIN;
+	if (lst)
+	{
+		while (lst)
+		{
+			if (lst->content > max)
+				max = lst->content;
+			lst = lst->next;
+		}
+	}
+	return (max);
+}
