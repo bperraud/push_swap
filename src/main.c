@@ -27,13 +27,6 @@ t_list	*lst_init2(int argc, char **argv)
 }
 
 
-void	dot(t_list **stack_b)
-{
-	//ft_putendl_fd(action, 1);
-	rotate(stack_b);
-}
-
-
 int	main(int argc, char **argv)
 {	
 	t_list *stack_a;
@@ -50,9 +43,12 @@ int	main(int argc, char **argv)
 	stack_b->is_empty = 1;
 	stack_a = lst_init(argc, argv);
 
-	stack_b = lst_init2(argc, argv);
+	//stack_b = lst_init2(argc, argv);
 
+	printf("a : \n");
 	lst_print(stack_a);
+	printf("b : \n");
+	lst_print(stack_b);
 
 	if (has_dupplicate(stack_a))
 	{
@@ -95,7 +91,7 @@ int	main(int argc, char **argv)
 	printf("size b : %i\n", lstsize(stack_b));
 	*/
 
-	
+	/*
 	printf("------\n");
 	lst_print(stack_b);
 
@@ -117,10 +113,17 @@ int	main(int argc, char **argv)
 	move_to_top(&stack_b, find_elem(stack_b, 7));
 	lst_print(stack_b);
 
-	
+	*/
+
+	printf("------\n");
+	push_swap(&stack_a, &stack_b);
+	lst_print(stack_a);
+	printf("------\n");
+	lst_print(stack_b);
+
 	lstclear(&stack_a);
 	lstclear(&stack_b);
-
+	
 
 	return (0);
 }

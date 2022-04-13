@@ -32,7 +32,7 @@ void	swap(t_list *lst)
 void	push(t_list **a, t_list **b)
 {
 	printf("push\n");
-	lstadd_back(b, lstnew((*a)->content));
+	lstadd_front(b, lstnew((*a)->content));
 	lstdel_front(a);
 }
 

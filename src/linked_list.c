@@ -31,7 +31,7 @@ void	lstadd_back(t_list **alst, t_list *new)
 
 void	lstadd_front(t_list **alst, t_list *new)
 {
-	if (!(*alst)->is_empty == 1)
+	if ((*alst)->is_empty == 1)
 	{
 		*alst = new;
 		return ;

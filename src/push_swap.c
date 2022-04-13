@@ -17,7 +17,7 @@ void	push_swap(t_list **stack_a, t_list **stack_b)
 {
 	int	size;
 
-	size = lstsize(*stack_a);
+	size = lstsize(*stack_a)  - 1;
 
 	/*
 	if (size == 2)
@@ -26,16 +26,18 @@ void	push_swap(t_list **stack_a, t_list **stack_b)
 		three_push_swap(stack_a);
 	*/
 
-	if (size > 10)
+	if (size > 0)
 	{
-		while (lstsize(*stack_a))		// trier à l'envers dans b
+		while (size--)		// trier à l'envers dans b
 		{
-			//move_to_top(stack_b, stack_a->content);		// move the right element at top of b;
-			//action(stack_a, stack_b, "pb");	// push from a to b
+			move_to_top(stack_b, find_elem(*stack_b, (*stack_a)->content));		// move the right element at top of b;
+			action(stack_a, stack_b, "pb");	// push from a to b
 		}
+		/*
 		while (lstsize(*stack_b))
 			//action(stack_a, stack_b, "pa");
 			;
+			*/
 	}
 }
 
@@ -75,19 +77,14 @@ void	move_to_top(t_list **stack_b, int position)
 	size = lstsize(*stack_b);
 	if (position <= size/2)
 	{
-		printf("en dessous de la moitié\n : %i\n", position);
 		while (position--)
 			action(stack_b, stack_b, "rb");
 	}
 	else
 	{
-		//cas pair
 		move = size - position;
-		printf("au dessus de la moitié\n : %i\n", move);
 		while (move--)
-			//action(stack_b, stack_b, "rrb");
 			action(stack_b, stack_b, "rrb");
-			
 	}
 }
 

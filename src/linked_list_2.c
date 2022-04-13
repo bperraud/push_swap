@@ -41,6 +41,8 @@ void	lstdel_front(t_list **lst)
 {
 	t_list	*list;
 
+	if (lstsize(*lst) == 1)
+		(*lst)->is_empty = 1;
 	*lst = (*lst)->next;
 	free((*lst)->previous);
 	(*lst)->previous = NULL;
