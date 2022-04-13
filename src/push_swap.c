@@ -26,17 +26,14 @@ void	push_swap(t_list **stack_a, t_list **stack_b)
 		three_push_swap(stack_a);
 	*/
 
-	if (size > 0)
+	if (size > 5)
 	{
 		while (size--)	// trier à l'envers dans b
 		{
-			move_to_top(stack_b, find_elem(*stack_b, (*stack_a)->content));		// move the right element at top of b;
+			move_to_top(stack_b, find_elem(*stack_b, (*stack_a)->content)); // move the right element at top of b;
 			action(stack_a, stack_b, "pb");	// push from a to b
 		}
-		while ((*stack_b)->content != lstmax(*stack_b))
-		{
-			action(stack_a, stack_b, "rb");
-		}
+		move_to_top(stack_b, find_elem(*stack_b, lstmax(*stack_b) + 1));
 		size = lstsize(*stack_b);
 		while (size--)
 			action(stack_a, stack_b, "pa");
@@ -60,6 +57,7 @@ int	find_elem(t_list *stack_b, int compare)
 		{
 			max = stack_b->content;
 			position = i;
+			printf("max : %i\n", max);
 		}
 		i += 1;
 		stack_b = stack_b->next;
@@ -75,7 +73,6 @@ void	move_to_top(t_list **stack_b, int position)
 
 	if (position == 0)
 		return ;
-
 	size = lstsize(*stack_b);
 	if (position <= size/2)
 	{

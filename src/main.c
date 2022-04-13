@@ -115,6 +115,18 @@ int	main(int argc, char **argv)
 
 	*/
 
+	/*
+	printf("pos of greatest lower of -3: %i\n", find_elem(stack_a, -3));
+	move_to_top(&stack_a, find_elem(stack_a, -3));
+	lst_print(stack_a);
+
+	lst_print(stack_a);
+
+	printf("pos of greatest lower of -6: %i\n", find_elem(stack_a, -6));
+	move_to_top(&stack_a, find_elem(stack_a, -6));
+	lst_print(stack_a);
+	*/
+
 	printf("------\n");
 	push_swap(&stack_a, &stack_b);
 	lst_print(stack_a);
