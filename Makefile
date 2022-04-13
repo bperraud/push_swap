@@ -6,7 +6,7 @@
 #    By: bperraud <bperraud@student.s19.be>         +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/03/27 16:51:35 by bperraud          #+#    #+#              #
-#    Updated: 2022/04/12 23:58:15 by bperraud         ###   ########.fr        #
+#    Updated: 2022/04/14 00:43:46 by bperraud         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -27,7 +27,7 @@ OBJ	  			= $(addprefix $(ODIR)/, $(SRC:.c=.o))
 
 ### COMPILATION ###
 CC				= gcc
-#CFLAGS			= -Wall -Wextra -Werror
+#CFLAGS			= -Wall -Wextra -Werror -fsanitize=address
 RM				= rm -f
 
 ### EXECUTABLE ###

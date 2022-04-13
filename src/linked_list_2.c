@@ -44,6 +44,8 @@ void	lstdel_front(t_list **lst)
 	if (lstsize(*lst) == 1)
 	{
 		(*lst)->is_empty = 1;
+		free((*lst)->previous);
+		free((*lst)->next);
 		return ;
 	}
 	*lst = (*lst)->next;
@@ -64,7 +66,7 @@ void	lstclear(t_list **lst)
 			*lst = temp;
 		}
 	}
-	*lst = NULL;		// utile ? 
+	*lst = NULL;		// utile ?
 }
 
 int	lstmax(t_list *lst)
