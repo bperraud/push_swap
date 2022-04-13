@@ -14,6 +14,26 @@
 //#include "../libft/get_next_line_bonus.h"
 #include "../libft/libft.h"
 
+t_list	*lst_init2(int argc, char **argv)
+{
+	int		i;
+	t_list	*lst;
+
+	lst = lstnew(atoi_lst(argv[1], lst) + 1);
+	i = 1;
+	while (i++ < argc - 1)
+		lstadd_back(&lst, lstnew(atoi_lst(argv[i], lst) + 1));
+	return (lst);
+}
+
+
+void	dot(t_list **stack_b)
+{
+	//ft_putendl_fd(action, 1);
+	rotate(stack_b);
+}
+
+
 int	main(int argc, char **argv)
 {	
 	t_list *stack_a;
@@ -29,6 +49,9 @@ int	main(int argc, char **argv)
 	stack_b = malloc(sizeof(t_list));
 	stack_b->is_empty = 1;
 	stack_a = lst_init(argc, argv);
+
+	stack_b = lst_init2(argc, argv);
+
 	lst_print(stack_a);
 
 	if (has_dupplicate(stack_a))
@@ -43,6 +66,7 @@ int	main(int argc, char **argv)
 		return (0);
 	}
 	
+	/*
 	printf("swap : ---\n");
 	swap(stack_a);
 	lst_print(stack_a);
@@ -69,42 +93,34 @@ int	main(int argc, char **argv)
 	lst_print(stack_b);
 	printf("size a : %i\n", lstsize(stack_a));
 	printf("size b : %i\n", lstsize(stack_b));
+	*/
 
-	lstclear(&stack_a);
-	lstclear(&stack_b);
-
-	return (0);
-}
-
-
-int	main2()
-{
-	t_list *stack_a;
-	t_list *stack_b;
-	//stack_b = lst_init(argc, argv);
-
-
-	//lstadd_front(&lst, lstnew(-1));
-	lstadd_front(&stack_a, lstnew(-1));
-	lst_print(stack_a);
-
-	printf("swap : ---\n");
-	swap(stack_a);
-	lst_print(stack_a);
-
-
-	printf("rotate : ---\n");
-	rotate(&stack_a);
-	lst_print(stack_a);
-
-
-	printf("push a to b : ---\n");
-	push(&stack_a, &stack_b);
-
-	lst_print(stack_a);
+	
 	printf("------\n");
 	lst_print(stack_b);
 
+	printf("pos of greatest lower of 7: %i\n", find_elem(stack_b, 7));
+	move_to_top(&stack_b, find_elem(stack_b, 7));
+	lst_print(stack_b);
 
+	printf("pos of greatest lower of 5: %i\n", find_elem(stack_b, 5));
+	move_to_top(&stack_b, find_elem(stack_b, 5));
+	lst_print(stack_b);
+
+	printf("pos of greatest lower of 11: %i\n", find_elem(stack_b, 11));
+	move_to_top(&stack_b, find_elem(stack_b, 11));
+	lst_print(stack_b);
+
+	lst_print(stack_b);
+
+	printf("pos of greatest lower of 7: %i\n", find_elem(stack_b, 7));
+	move_to_top(&stack_b, find_elem(stack_b, 7));
+	lst_print(stack_b);
+
+	
 	lstclear(&stack_a);
+	lstclear(&stack_b);
+
+
+	return (0);
 }

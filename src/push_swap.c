@@ -13,11 +13,11 @@
 #include "../include/push_swap.h"
 #include "../libft/libft.h"
 
-void	push_swap(t_list *stack_a, t_list *stack_b)
+void	push_swap(t_list **stack_a, t_list **stack_b)
 {
 	int	size;
 
-	size = lstsize(stack_a);
+	size = lstsize(*stack_a);
 
 	/*
 	if (size == 2)
@@ -28,19 +28,20 @@ void	push_swap(t_list *stack_a, t_list *stack_b)
 
 	if (size > 10)
 	{
-		while (lstsize(stack_a))		// trier à l'envers dans b
+		while (lstsize(*stack_a))		// trier à l'envers dans b
 		{
-			move_to_top(stack_b, stack_a->content);		// move the right element at top of b;
-			action(stack_a, stack_b, "pb");	// push from a to b
+			//move_to_top(stack_b, stack_a->content);		// move the right element at top of b;
+			//action(stack_a, stack_b, "pb");	// push from a to b
 		}
-		while (lstsize(stack_b))
-			action(stack_a, stack_b, "pa");
+		while (lstsize(*stack_b))
+			//action(stack_a, stack_b, "pa");
+			;
 	}
 }
 
 
 //return position of the greatest lower value of compare
-void	find_elem(t_list *stack_b, int compare)
+int	find_elem(t_list *stack_b, int compare)
 {
 	int	max;
 	int	position;
@@ -48,51 +49,70 @@ void	find_elem(t_list *stack_b, int compare)
 
 	position = 0;
 	i = 0;
-	max = -1111111; 		// int min 
-	while (stack_b->next)
+	max = INT_MIN;
+	while (stack_b)
 	{
-		stack_b = stack_b->next;
 		if (stack_b->content > max && stack_b->content < compare)
 		{
 			max = stack_b->content;
 			position = i;
 		}
 		i += 1;
+		stack_b = stack_b->next;
 	}
 	return (position);
 }
 
-// rotate or shift stack_b, while content not in the right place
-void	move_to_top(t_list *stack_b, int position)
-{
-	int	i;
+// rotate or shift stack_b, while content not in position place
+void	move_to_top(t_list **stack_b, int position)
+{	
+	int	move;
+	int	size;
 
-	i = lstsize(stack_b);
-	if (position > i/2)
+	if (position == 0)
+		return ;
+
+	size = lstsize(*stack_b);
+	if (position <= size/2)
 	{
-		while (i--)
+		printf("en dessous de la moitié\n : %i\n", position);
+		while (position--)
 			action(stack_b, stack_b, "rb");
 	}
 	else
 	{
-		while (i--)
+		//cas pair
+		move = size - position;
+		printf("au dessus de la moitié\n : %i\n", move);
+		while (move--)
+			//action(stack_b, stack_b, "rrb");
 			action(stack_b, stack_b, "rrb");
+			
 	}
 }
 
-
-void	action(t_list *stack_a, t_list *stack_b, char *action)
+void	action(t_list **stack_a, t_list **stack_b, char *action)
 {
 	ft_putendl_fd(action, 1);
-	if (ft_strncmp(action, "sa", 2))
-		push(stack_a, stack_b);
-	else if (ft_strncmp(action, "pa", 2))
+	if (!ft_strncmp(action, "sa", 3) || !ft_strncmp(action, "ss", 3))
+		swap(*stack_a);
+	if (!ft_strncmp(action, "sb", 3) || !ft_strncmp(action, "ss", 3))
+		swap(*stack_b);
+	if (!ft_strncmp(action, "pa", 3))
 		push(stack_b, stack_a);
-	else if (ft_strncmp(action, "sa", 2))
+	if (!ft_strncmp(action, "pb", 3))
 		push(stack_a, stack_b);
+	if (!ft_strncmp(action, "rra", 3) || !ft_strncmp(action, "rrr", 3))
+		r_rotate(stack_a);
+	if (!ft_strncmp(action, "rrb", 3) || !ft_strncmp(action, "rrr", 3))
+		r_rotate(stack_b);
+	if (!ft_strncmp(action, "ra", 3) || !ft_strncmp(action, "rr", 3))
+		rotate(stack_a);
+	if (!ft_strncmp(action, "rb", 3) || !ft_strncmp(action, "rr", 3))
+		rotate(stack_b);
 }
 
-void	three_push_swap(t_list *a)
+void	sort_3(t_list *a)
 {
 	if (a->content < a->next->next->content && a->content > a->next->content)
 		ft_putendl_fd("sa", 1);
