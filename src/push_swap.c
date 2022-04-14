@@ -92,7 +92,7 @@ int	find_elem(t_list *stack_b, int compare)
 	}
 	if (bool)
 	{
-		printf("lstmax = %i\n", lstmax_position(start));
+		//printf("lstmax = %i\n", lstmax_position(start));
 		return (lstmax_position(start));
 	}	
 		
@@ -107,16 +107,19 @@ void	move_to_top(t_list **stack_b, int position)
 	if (position == 0)
 		return ;
 	size = lstsize(*stack_b);
+	//if (position <= size/2)
 	if (position <= size/2)
 	{
 		while (position--)
 			action(stack_b, stack_b, "rb");
+			//action(stack_b, stack_b, "rr");
 	}
 	else
 	{
 		size -= position;
 		while (size--)
 			action(stack_b, stack_b, "rrb");
+			//action(stack_b, stack_b, "rrr");
 	}
 }
 

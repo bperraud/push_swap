@@ -21,9 +21,9 @@ int	main(int argc, char **argv)
 	if (argc < 2)
 		return (0);
 
+	stack_a = lst_init(argc, argv);
 	stack_b = malloc(sizeof(t_list));
 	stack_b->is_empty = 1;
-	stack_a = lst_init(argc, argv);
 
 	if (has_dupplicate(stack_a))
 	{
@@ -99,7 +99,7 @@ int	main(int argc, char **argv)
 	lst_print(stack_a);
 	*/
 
-	
+	/*
 	printf("------\n");
 	push_swap(&stack_a, &stack_b);
 	lst_print(stack_a);
@@ -108,9 +108,14 @@ int	main(int argc, char **argv)
 	
 	if (is_sorted(stack_a))
 		printf("sorted !");
-
+	else
+		printf("not sorted :(");
+	*/
 	
+	push_swap(&stack_a, &stack_b);
 	free_exit(&stack_a, &stack_b);
+
+	//exit_error(stack_a);
 	return (0);
 }
 

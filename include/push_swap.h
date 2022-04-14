@@ -37,7 +37,7 @@ void	rotate(t_list **lst);
 void	r_rotate(t_list **lst);
 
 //utils
-void	exit_error(t_list *stack_a, t_list *stack_b);
+void	exit_error(t_list *stack_a);
 int		atoi_lst(const char *str, t_list *stack_a);
 t_list	*lst_init(int argc, char **argv);
 
@@ -51,6 +51,7 @@ int		lstsize(t_list *lst);
 void	lstdel_front(t_list **lst);
 void	lstclear(t_list **lst);
 int		lstmax(t_list *lst);
+int		lstmax_position(t_list *lst);
 
 //push_swap
 void	push_swap(t_list **stack_a, t_list **stack_b);

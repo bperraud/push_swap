@@ -32,20 +32,20 @@ int	atoi_lst(const char *str, t_list *stack_a)
 	while (str[i] >= '0' && str[i] <= '9')
 	{
 		if ((res * 10 > INT_MAX) && neg == 1)
-			exit_error(stack_a, NULL);
-		if ((res * 10 - 1 > INT_MAX) && neg == -1)
-			exit_error(stack_a, NULL);
+			exit_error(stack_a);
+		if ((res * 10 - 2 > INT_MAX) && neg == -1)
+			exit_error(stack_a);
 		res = res * 10 + str[i++] - '0';
 	}
 	if (str[i] != '\0' || ((str[0] == '-' || str[0] == '+') && i == 1))
-		exit_error(stack_a, NULL);
+		exit_error(stack_a);
 	return ((int)(res * neg));
 }
 
-void	exit_error(t_list *stack_a, t_list *stack_b)
+void	exit_error(t_list *stack_a)
 {
 	ft_putendl_fd("Error", 2);
-	lstclear(&stack_a);
-	lstclear(&stack_b);
+	if (!stack_a->is_empty)
+		lstclear(&stack_a);
 	exit(EXIT_FAILURE);
 }
