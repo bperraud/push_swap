@@ -27,16 +27,13 @@ int	main(int argc, char **argv)
 
 	if (has_dupplicate(stack_a))
 	{
-		printf("has_dupplicate");
 		ft_putendl_fd("Error", 2);
-		return (0);
+		free_exit(&stack_a, &stack_b);
 	}
-	if (is_sorted(stack_a) )
-	{
-		printf("sorted");
-		return (0);
-	}
+	if (is_sorted(stack_a))
+		free_exit(&stack_a, &stack_b);
 	
+		
 	/*
 	printf("swap : ---\n");
 	swap(stack_a);
@@ -109,9 +106,17 @@ int	main(int argc, char **argv)
 	printf("------\n");
 	lst_print(stack_b);
 	
+	if (is_sorted(stack_a))
+		printf("sorted !");
 
-	lstclear(&stack_a);
-	lstclear(&stack_b);
-
+	
+	free_exit(&stack_a, &stack_b);
 	return (0);
+}
+
+void	free_exit(t_list **stack_a, t_list **stack_b)
+{
+	lstclear(stack_a);
+	lstclear(stack_b);
+	exit(EXIT_SUCCESS);
 }

@@ -69,7 +69,7 @@ void	lstclear(t_list **lst)
 	*lst = NULL;		// utile ?
 }
 
-int	lstmax(t_list *lst)
+int	lstmax(t_list *lst)	// fonctionne pas ? 
 {	
 	int	max;
 
@@ -84,4 +84,31 @@ int	lstmax(t_list *lst)
 		}
 	}
 	return (max);
+}
+
+
+int	lstmax_position(t_list *lst)
+{	
+	int	max;
+	int	position;
+	int	pos;
+
+	max = INT_MIN;
+	position = 0;
+	pos = 0;
+	if (lst)
+	{
+		while (lst)
+		{
+			if (lst->content > max)
+			{
+				max = lst->content;
+				position = pos;
+			}
+				
+			lst = lst->next;
+			pos += 1;
+		}
+	}
+	return (position);
 }

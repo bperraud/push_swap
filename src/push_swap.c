@@ -13,6 +13,32 @@
 #include "../include/push_swap.h"
 #include "../libft/libft.h"
 
+
+int	find_elem2(t_list *stack_b, int compare)
+{
+	int	max;
+	int	position;
+	int	i;
+
+	position = 0;
+	i = 0;
+	max = INT_MIN;
+	
+	while (stack_b)
+	{
+		if (stack_b->content > max && stack_b->content < compare)
+		{
+			printf("la");
+			max = stack_b->content;
+			position = i;
+		}
+		i += 1;
+		stack_b = stack_b->next;
+	}
+	return (position);
+}
+
+
 void	push_swap(t_list **stack_a, t_list **stack_b)
 {
 	int	size;
@@ -45,7 +71,11 @@ int	find_elem(t_list *stack_b, int compare)
 	int	max;
 	int	position;
 	int	i;
+	int	bool;
+	t_list	*start;
 
+	start = stack_b;
+	bool = 1;
 	position = 0;
 	i = 0;
 	max = INT_MIN;
@@ -53,12 +83,19 @@ int	find_elem(t_list *stack_b, int compare)
 	{
 		if (stack_b->content > max && stack_b->content < compare)
 		{
+			bool = 0;
 			max = stack_b->content;
 			position = i;
 		}
 		i += 1;
 		stack_b = stack_b->next;
 	}
+	if (bool)
+	{
+		printf("lstmax = %i\n", lstmax_position(start));
+		return (lstmax_position(start));
+	}	
+		
 	return (position);
 }
 

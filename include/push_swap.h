@@ -25,6 +25,7 @@ typedef struct s_list
 //main
 int		check_argument(int argc, char **argv);
 int		is_sorted(t_list *lst);
+void	free_exit(t_list **stack_a, t_list **stack_b);
 
 //check
 int		has_dupplicate(t_list *lst);
