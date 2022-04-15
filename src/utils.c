@@ -33,7 +33,7 @@ int	atoi_lst(const char *str, t_list *stack_a)
 	{
 		if ((res * 10 > INT_MAX) && neg == 1)
 			exit_error(stack_a);
-		if ((res * 10 - 2 > INT_MAX) && neg == -1)
+		if ((res * 10 - 1 > INT_MAX) && neg == -1)
 			exit_error(stack_a);
 		res = res * 10 + str[i++] - '0';
 	}

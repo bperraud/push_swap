@@ -66,10 +66,10 @@ void	lstclear(t_list **lst)
 			*lst = temp;
 		}
 	}
-	*lst = NULL;		// utile ?
+	//*lst = NULL; 		// utile ? 
 }
 
-int	lstmax(t_list *lst)	// fonctionne pas ? 
+int	lstmax(t_list *lst)	
 {	
 	int	max;
 

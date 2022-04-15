@@ -112,14 +112,12 @@ void	move_to_top(t_list **stack_b, int position)
 	{
 		while (position--)
 			action(stack_b, stack_b, "rb");
-			//action(stack_b, stack_b, "rr");
 	}
 	else
 	{
 		size -= position;
 		while (size--)
 			action(stack_b, stack_b, "rrb");
-			//action(stack_b, stack_b, "rrr");
 	}
 }
 
