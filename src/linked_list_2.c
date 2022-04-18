@@ -17,6 +17,7 @@ t_list	*lst_init(int argc, char **argv)
 	int		i;
 	t_list	*lst;
 
+	lst = malloc(sizeof(t_list));
 	lst = lstnew(atoi_lst(argv[1], lst));
 	i = 1;
 	while (i++ < argc - 1)
@@ -39,8 +40,6 @@ void	lst_print(t_list *lst)
 
 void	lstdel_front(t_list **lst)
 {
-	t_list	*list;
-
 	if (lstsize(*lst) == 1)
 	{
 		(*lst)->is_empty = 1;
@@ -66,7 +65,6 @@ void	lstclear(t_list **lst)
 			*lst = temp;
 		}
 	}
-	//*lst = NULL; 		// utile ? 
 }
 
 int	lstmax(t_list *lst)	
@@ -86,6 +84,49 @@ int	lstmax(t_list *lst)
 	return (max);
 }
 
+int	lstmin(t_list *lst)	
+{	
+	int	min;
+
+	min = INT_MAX;
+	if (lst)
+	{
+		while (lst)
+		{
+			if (lst->content < min)
+				min = lst->content;
+			lst = lst->next;
+		}
+	}
+	return (min);
+}
+
+
+int	lstmin_position(t_list *lst)
+{	
+	int	min;
+	int	position;
+	int	pos;
+
+	min = INT_MAX;
+	position = 0;
+	pos = 0;
+	if (lst)
+	{
+		while (lst)
+		{
+			if (lst->content < min)
+			{
+				min = lst->content;
+				position = pos;
+			}
+				
+			lst = lst->next;
+			pos += 1;
+		}
+	}
+	return (position);
+}
 
 int	lstmax_position(t_list *lst)
 {	

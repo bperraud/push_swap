@@ -22,6 +22,14 @@ typedef struct s_list
 	int				is_empty;
 }	t_list;
 
+
+typedef struct s_best
+{
+	int				min_operation;
+	int				move_to_end_b;
+	int				move_to_end_a;
+}	t_best;
+
 //main
 int		check_argument(int argc, char **argv);
 int		is_sorted(t_list *lst);
@@ -40,6 +48,9 @@ void	r_rotate(t_list **lst);
 void	exit_error(t_list *stack_a);
 int		atoi_lst(const char *str, t_list *stack_a);
 t_list	*lst_init(int argc, char **argv);
+int		max(int a, int b);
+int		min(int a, int b);
+
 
 //list
 void	lst_print(t_list *lst);
@@ -52,10 +63,22 @@ void	lstdel_front(t_list **lst);
 void	lstclear(t_list **lst);
 int		lstmax(t_list *lst);
 int		lstmax_position(t_list *lst);
+int		lstmin_position(t_list *lst);
+int		lstmin(t_list *lst);
 
 //push_swap
 void	push_swap(t_list **stack_a, t_list **stack_b);
 int		find_elem(t_list *stack_b, int compare);
 void	move_to_top(t_list **stack_b, int position);
 void	action(t_list **stack_a, t_list **stack_b, char *action);
-void	sort_3(t_list *a);
+void	sort_3(t_list **a);
+void	sort_until_2(t_list **stack_a, t_list **stack_b, int size);
+void	short_sort(t_list **stack_a, t_list **stack_b, int size);
+void	sort_5(t_list **a, t_list **b);
+
+
+//optimisation
+t_best	best_operation_top_half(t_list *stack_a, t_list *stack_b);
+t_best	best_operation_bot_half(t_list *stack_a, t_list *stack_b);
+void	move_to_top_2(t_list **stack_a, t_list **stack_b, t_best best);
+void	move_to_bot_2(t_list **stack_a, t_list **stack_b, t_best best);

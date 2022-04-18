@@ -49,3 +49,19 @@ void	exit_error(t_list *stack_a)
 		lstclear(&stack_a);
 	exit(EXIT_FAILURE);
 }
+
+int	max(int a, int b)
+{
+	if (a > b)
+		return (a);
+	else	
+		return (b);	
+}
+
+int	min(int a, int b)
+{
+	if (a < b)
+		return (a);
+	else	
+		return (b);	
+}

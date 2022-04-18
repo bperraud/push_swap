@@ -32,9 +32,6 @@ int	has_dupplicate(t_list *lst)
 
 int	is_sorted(t_list *lst)
 {	
-	int	i;
-
-	i = -1;
 	while (lst->next)
 	{
 		if (lst->content > lst->next->content)

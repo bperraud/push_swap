@@ -12,7 +12,6 @@
 
 #include "../include/push_swap.h"
 
-
 // list trié ordre croissant : échanger les deux du haut = les deux plus petits = les deux premiers éléments
 // swap the top two numbers
 void	swap(t_list *lst)
@@ -25,7 +24,6 @@ void	swap(t_list *lst)
 	list->content = lst->content;
 	lst->content = temp;
 }
-
 
 //push top of stack a to b
 void	push(t_list **a, t_list **b)
