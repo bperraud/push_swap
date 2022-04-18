@@ -14,10 +14,10 @@
 
 int	has_dupplicate(t_list *lst)
 {
+	t_list	*comp;
+
 	while (lst->next)
 	{
-		t_list *comp;
-
 		comp = lst;
 		while (comp->next)
 		{
@@ -31,12 +31,12 @@ int	has_dupplicate(t_list *lst)
 }
 
 int	is_sorted(t_list *lst)
-{	
+{
 	while (lst->next)
 	{
 		if (lst->content > lst->next->content)
 			return (0);
-		lst = lst->next;	
+		lst = lst->next;
 	}
 	return (1);
 }

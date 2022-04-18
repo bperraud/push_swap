@@ -23,9 +23,9 @@ void	push_swap(t_list **stack_a, t_list **stack_b)
 	else
 	{
 		sort_until_2(stack_a, stack_b, size);
-		move_to_top_b(stack_b, find_elem_max(*stack_b, (*stack_a)->content)); 
+		move_to_top_b(stack_b, find_elem_max(*stack_b, (*stack_a)->content));
 		action(stack_a, stack_b, "pb");
-		move_to_top_b(stack_b, find_elem_max(*stack_b, (*stack_a)->content)); 
+		move_to_top_b(stack_b, find_elem_max(*stack_b, (*stack_a)->content));
 		action(stack_a, stack_b, "pb");
 		move_to_top_b(stack_b, find_elem_max(*stack_b, lstmax(*stack_b) + 1));
 		size = lstsize(*stack_b);
@@ -71,7 +71,7 @@ void	move_to_top_a(t_list **stack_a, int position)
 	if (position == 0)
 		return ;
 	size = lstsize(*stack_a);
-	if (position <= size/2)
+	if (position <= size / 2)
 	{
 		while (position--)
 			action(stack_a, stack_a, "ra");
@@ -92,7 +92,7 @@ void	move_to_top_b(t_list **stack_b, int position)
 	if (position == 0)
 		return ;
 	size = lstsize(*stack_b);
-	if (position <= size/2)
+	if (position <= size / 2)
 	{
 		while (position--)
 			action(stack_b, stack_b, "rb");
@@ -134,4 +134,3 @@ int	find_elem_min(t_list *stack_b, int compare)
 		return (lstmin_position(start));
 	return (position);
 }
-

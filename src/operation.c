@@ -12,14 +12,13 @@
 
 #include "../include/push_swap.h"
 
-// list trié ordre croissant : échanger les deux du haut = les deux plus petits = les deux premiers éléments
 // swap the top two numbers
 void	swap(t_list *lst)
 {
 	int		temp;
 	t_list	*list;
 
-	list = lst->next;	
+	list = lst->next;
 	temp = list->content;
 	list->content = lst->content;
 	lst->content = temp;
@@ -32,9 +31,6 @@ void	push(t_list **a, t_list **b)
 	lstdel_front(a);
 }
 
-
-//  top number in A goes to bottom of A
-// interet de la liste doublement chainé sans référence à la fin de liste ? (aucun je pense)
 void	r_rotate(t_list **lst)
 {
 	t_list	*last;

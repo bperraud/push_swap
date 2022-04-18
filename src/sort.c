@@ -22,7 +22,7 @@ void	short_sort(t_list **stack_a, t_list **stack_b, int size)
 	else if (size == 4)
 		return ;
 	else if (size == 5)
-		sort_5(stack_a, stack_b);	
+		sort_5(stack_a, stack_b);
 }
 
 void	sort_until_2(t_list **stack_a, t_list **stack_b, int size)
@@ -66,12 +66,14 @@ void	sort_3(t_list **stack_a)
 	else if (a->next->next->content > a->next->content
 		&& a->content > a->next->next->content)
 		action(stack_a, NULL, "ra");
-	else if (a->content < a->next->next->content && a->content < a->next->content)
+	else if (a->content < a->next->next->content
+		&& a->content < a->next->content)
 	{
 		action(stack_a, NULL, "sa");
 		action(stack_a, NULL, "ra");
 	}
-	else if (a->content < a->next->content && a->content > a->next->next->content)
+	else if (a->content < a->next->content
+		&& a->content > a->next->next->content)
 		action(stack_a, NULL, "rra");
 }
 
@@ -79,14 +81,13 @@ void	sort_5(t_list **a, t_list **b)
 {
 	action(a, b, "pb");
 	action(a, b, "pb");
-
 	if (!is_sorted(*a))
 		sort_3(a);
 	move_to_top_a(a, find_elem_min(*a, (*b)->content));
 	action(a, b, "pa");
 	move_to_top_a(a, find_elem_min(*a, (*b)->content));
 	action(a, b, "pa");
-	move_to_top_a(a, find_elem_max(*a, lstmin(*a) + 1));	//ou min ?
+	move_to_top_a(a, find_elem_max(*a, lstmin(*a) + 1));
 }
 
 void	action(t_list **stack_a, t_list **stack_b, char *action)

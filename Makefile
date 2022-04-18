@@ -6,12 +6,12 @@
 #    By: bperraud <bperraud@student.s19.be>         +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/03/27 16:51:35 by bperraud          #+#    #+#              #
-#    Updated: 2022/04/18 02:23:45 by bperraud         ###   ########.fr        #
+#    Updated: 2022/04/18 02:33:35 by bperraud         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 ### SOURCES FILES ###
-SRC			    = main.c linked_list.c linked_list_2.c utils.c operation.c check.c push_swap.c optimisation.c sort.c
+SRC			    = main.c linked_list.c linked_list_2.c utils.c operation.c check.c push_swap.c optimisation.c sort.c list_utils.c
 
 ### PATHS ###
 SDIR			= src

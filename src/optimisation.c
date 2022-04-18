@@ -14,25 +14,25 @@
 
 t_best	best_operation_top_half(t_list *stack_a, t_list *stack_b)
 {
-	t_best s;
-	int	operation;
-	int	move_to_end_a;
-	int	move_to_end_b;
+	t_best	s;
+	int		operation;
+	int		move_to_end_a;
+	int		move_to_end_b;
 
 	move_to_end_a = -1;
 	move_to_end_b = 0;
 	s.min_operation = INT_MAX;
-	while (move_to_end_a++ <= lstsize(stack_a)/2 + 1)
+	while (move_to_end_a++ <= lstsize(stack_a) / 2 + 1)
 	{
 		move_to_end_b = find_elem_max(stack_b, (stack_a)->content);
 		operation = max(move_to_end_b, move_to_end_a);
-		if (operation < s.min_operation)		
-		{	
+		if (operation < s.min_operation)
+		{
 			s.min_operation = operation;
 			s.move_to_end_b = move_to_end_b;
 			s.move_to_end_a = move_to_end_a;
 		}
-		stack_a = (stack_a)->next;	
+		stack_a = (stack_a)->next;
 	}
 	return (s);
 }
@@ -49,9 +49,10 @@ t_best	best_operation_bot_half(t_list *stack_a, t_list *stack_b)
 	s.move_to_end_b = 0;
 	s.min_operation = INT_MAX;
 	last = lstlast(stack_a);
-	while (move_to_end_a++ < lstsize(stack_a)/2) 
+	while (move_to_end_a++ < lstsize(stack_a) / 2)
 	{
-		move_to_end_b = lstsize(stack_b) - find_elem_max(stack_b, last->content);
+		move_to_end_b = lstsize(stack_b)
+			- find_elem_max(stack_b, last->content);
 		operation = max(move_to_end_b, move_to_end_a);
 		if (operation < s.min_operation)
 		{
@@ -113,4 +114,3 @@ void	move_to_bot_opti(t_list **stack_a, t_list **stack_b, t_best best)
 			action(stack_a, stack_b, "rrb");
 	}
 }
-
