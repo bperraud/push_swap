@@ -69,7 +69,8 @@ int		lstmin(t_list *lst);
 //push_swap
 void	push_swap(t_list **stack_a, t_list **stack_b);
 int		find_elem(t_list *stack_b, int compare);
-void	move_to_top(t_list **stack_b, int position);
+void	move_to_top_b(t_list **stack_b, int position);
+void	move_to_top_a(t_list **stack_a, int position);
 void	action(t_list **stack_a, t_list **stack_b, char *action);
 void	sort_3(t_list **a);
 void	sort_until_2(t_list **stack_a, t_list **stack_b, int size);

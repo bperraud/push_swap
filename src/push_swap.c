@@ -23,11 +23,11 @@ void	push_swap(t_list **stack_a, t_list **stack_b)
 	else
 	{
 		sort_until_2(stack_a, stack_b, size);
-		move_to_top(stack_b, find_elem(*stack_b, (*stack_a)->content)); 
+		move_to_top_b(stack_b, find_elem(*stack_b, (*stack_a)->content)); 
 		action(stack_a, stack_b, "pb");
-		move_to_top(stack_b, find_elem(*stack_b, (*stack_a)->content)); 
+		move_to_top_b(stack_b, find_elem(*stack_b, (*stack_a)->content)); 
 		action(stack_a, stack_b, "pb");
-		move_to_top(stack_b, find_elem(*stack_b, lstmax(*stack_b) + 1));
+		move_to_top_b(stack_b, find_elem(*stack_b, lstmax(*stack_b) + 1));
 		size = lstsize(*stack_b);
 		while (size--)
 			action(stack_a, stack_b, "pa");
@@ -45,7 +45,6 @@ void	short_sort(t_list **stack_a, t_list **stack_b, int size)
 	else if (size == 5)
 		sort_5(stack_a, stack_b);	
 }
-
 
 void	sort_until_2(t_list **stack_a, t_list **stack_b, int size)
 {
@@ -103,7 +102,7 @@ int	find_elem(t_list *stack_b, int compare)
 }
 
 // rotate or shift stack_b, while content not in position place
-void	move_to_top(t_list **stack_b, int position)
+void	move_to_top_b(t_list **stack_b, int position)
 {
 	int	size;
 
@@ -120,6 +119,26 @@ void	move_to_top(t_list **stack_b, int position)
 		size -= position;
 		while (size--)
 			action(stack_b, stack_b, "rrb");
+	}
+}
+
+void	move_to_top_a(t_list **stack_a, int position)
+{
+	int	size;
+
+	if (position == 0)
+		return ;
+	size = lstsize(*stack_a);
+	if (position <= size/2)
+	{
+		while (position--)
+			action(stack_a, stack_a, "ra");
+	}
+	else
+	{
+		size -= position;
+		while (size--)
+			action(stack_a, stack_a, "rra");
 	}
 }
 
@@ -169,7 +188,6 @@ void	sort_3(t_list **stack_a)
 		action(stack_a, NULL, "rra");
 }
 
-
 //return position of the lower greatest value of compare
 int	find_elem_2(t_list *stack_b, int compare)
 {
@@ -200,16 +218,16 @@ int	find_elem_2(t_list *stack_b, int compare)
 	return (position);
 }
 
-
 void	sort_5(t_list **a, t_list **b)
 {
 	action(a, b, "pb");
 	action(a, b, "pb");
+
 	if (!is_sorted(*a))
 		sort_3(a);
-	move_to_top(a, find_elem_2(*a, (*b)->content));
+	move_to_top_a(a, find_elem_2(*a, (*b)->content));
 	action(a, b, "pa");
-	move_to_top(a, find_elem_2(*a, (*b)->content));
+	move_to_top_a(a, find_elem_2(*a, (*b)->content));
 	action(a, b, "pa");
-	move_to_top(a, find_elem(*a, lstmin(*a) + 1));
+	move_to_top_a(a, find_elem(*a, lstmin(*a) + 1));
 }
