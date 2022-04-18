@@ -24,7 +24,7 @@ t_best	best_operation_top_half(t_list *stack_a, t_list *stack_b)
 	s.min_operation = INT_MAX;
 	while (move_to_end_a++ <= lstsize(stack_a)/2 + 1)
 	{
-		move_to_end_b = find_elem(stack_b, (stack_a)->content);
+		move_to_end_b = find_elem_max(stack_b, (stack_a)->content);
 		operation = max(move_to_end_b, move_to_end_a);
 		if (operation < s.min_operation)		
 		{	
@@ -51,7 +51,7 @@ t_best	best_operation_bot_half(t_list *stack_a, t_list *stack_b)
 	last = lstlast(stack_a);
 	while (move_to_end_a++ < lstsize(stack_a)/2) 
 	{
-		move_to_end_b = lstsize(stack_b) - find_elem(stack_b, last->content);
+		move_to_end_b = lstsize(stack_b) - find_elem_max(stack_b, last->content);
 		operation = max(move_to_end_b, move_to_end_a);
 		if (operation < s.min_operation)
 		{
@@ -64,7 +64,7 @@ t_best	best_operation_bot_half(t_list *stack_a, t_list *stack_b)
 	return (s);
 }
 
-void	move_to_top_2(t_list **stack_a, t_list **stack_b, t_best best)
+void	move_to_top_opti(t_list **stack_a, t_list **stack_b, t_best best)
 {
 	int	rrotate;
 	int	rotate;
@@ -89,7 +89,7 @@ void	move_to_top_2(t_list **stack_a, t_list **stack_b, t_best best)
 	}
 }
 
-void	move_to_bot_2(t_list **stack_a, t_list **stack_b, t_best best)
+void	move_to_bot_opti(t_list **stack_a, t_list **stack_b, t_best best)
 {
 	int	rrotate;
 	int	rotate;

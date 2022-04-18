@@ -32,11 +32,11 @@ typedef struct s_best
 
 //main
 int		check_argument(int argc, char **argv);
-int		is_sorted(t_list *lst);
 void	free_exit(t_list **stack_a, t_list **stack_b);
 
 //check
 int		has_dupplicate(t_list *lst);
+int		is_sorted(t_list *lst);
 
 //operation
 void	swap(t_list *lst);
@@ -68,18 +68,20 @@ int		lstmin(t_list *lst);
 
 //push_swap
 void	push_swap(t_list **stack_a, t_list **stack_b);
-int		find_elem(t_list *stack_b, int compare);
+int		find_elem_max(t_list *stack_b, int compare);
+int		find_elem_min(t_list *stack_b, int compare);
 void	move_to_top_b(t_list **stack_b, int position);
 void	move_to_top_a(t_list **stack_a, int position);
-void	action(t_list **stack_a, t_list **stack_b, char *action);
+
+//sort
 void	sort_3(t_list **a);
 void	sort_until_2(t_list **stack_a, t_list **stack_b, int size);
 void	short_sort(t_list **stack_a, t_list **stack_b, int size);
 void	sort_5(t_list **a, t_list **b);
-
+void	action(t_list **stack_a, t_list **stack_b, char *action);
 
 //optimisation
 t_best	best_operation_top_half(t_list *stack_a, t_list *stack_b);
 t_best	best_operation_bot_half(t_list *stack_a, t_list *stack_b);
-void	move_to_top_2(t_list **stack_a, t_list **stack_b, t_best best);
-void	move_to_bot_2(t_list **stack_a, t_list **stack_b, t_best best);
+void	move_to_top_opti(t_list **stack_a, t_list **stack_b, t_best best);
+void	move_to_bot_opti(t_list **stack_a, t_list **stack_b, t_best best);
