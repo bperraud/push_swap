@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../include/push_swap.h"
+#include "push_swap.h"
 #include "../libft/libft.h"
 
 int	atoi_lst(const char *str, t_list *stack_a)
@@ -40,6 +40,13 @@ int	atoi_lst(const char *str, t_list *stack_a)
 	if (str[i] != '\0' || ((str[0] == '-' || str[0] == '+') && i == 1))
 		exit_error(stack_a);
 	return ((int)(res * neg));
+}
+
+void	free_exit(t_list **stack_a, t_list **stack_b)
+{
+	lstclear(stack_a);
+	lstclear(stack_b);
+	exit(EXIT_SUCCESS);
 }
 
 void	exit_error(t_list *stack_a)

@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../include/push_swap.h"
+#include "push_swap.h"
 #include "../libft/libft.h"
 
 void	push_swap(t_list **stack_a, t_list **stack_b)

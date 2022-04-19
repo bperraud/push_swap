@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../include/push_swap.h"
+#include "push_swap.h"
 
 t_list	*lst_init(int argc, char **argv)
 {
@@ -18,7 +18,8 @@ t_list	*lst_init(int argc, char **argv)
 	t_list	*lst;
 
 	lst = malloc(sizeof(t_list));
-	lst = lstnew(atoi_lst(argv[1], lst));
+	lst->is_empty = 1;
+	lstadd_back(&lst, lstnew(atoi_lst(argv[1], lst)));
 	i = 1;
 	while (i++ < argc - 1)
 		lstadd_back(&lst, lstnew(atoi_lst(argv[i], lst)));

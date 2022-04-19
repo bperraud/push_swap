@@ -10,20 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../include/push_swap.h"
-
-void	lst_print(t_list *lst)		// penser a supprimer
-{
-	if (lst)
-	{
-		while (lst->next)
-		{
-			printf("%i\n", lst->content);
-			lst = lst->next;
-		}
-		printf("%i\n", lst->content);
-	}
-}
+#include "push_swap.h"
 
 int	lstmax(t_list *lst)
 {

@@ -10,8 +10,30 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../include/push_swap.h"
+#include "push_swap.h"
 #include "../libft/libft.h"
+
+int	action(t_list **stack_a, t_list **stack_b, char *action)
+{
+	ft_putendl_fd(action, 1);
+	if (!ft_strncmp(action, "sa", 3) || !ft_strncmp(action, "ss", 3))
+		swap(*stack_a);
+	if (!ft_strncmp(action, "sb", 3) || !ft_strncmp(action, "ss", 3))
+		swap(*stack_b);
+	if (!ft_strncmp(action, "pa", 3))
+		push(stack_b, stack_a);
+	if (!ft_strncmp(action, "pb", 3))
+		push(stack_a, stack_b);
+	if (!ft_strncmp(action, "rra", 3) || !ft_strncmp(action, "rrr", 3))
+		r_rotate(stack_a);
+	if (!ft_strncmp(action, "rrb", 3) || !ft_strncmp(action, "rrr", 3))
+		r_rotate(stack_b);
+	if (!ft_strncmp(action, "ra", 3) || !ft_strncmp(action, "rr", 3))
+		rotate(stack_a);
+	if (!ft_strncmp(action, "rb", 3) || !ft_strncmp(action, "rr", 3))
+		rotate(stack_b);
+	return (0);
+}
 
 int	main(int argc, char **argv)
 {
@@ -33,11 +55,4 @@ int	main(int argc, char **argv)
 	push_swap(&stack_a, &stack_b);
 	free_exit(&stack_a, &stack_b);
 	return (0);
-}
-
-void	free_exit(t_list **stack_a, t_list **stack_b)
-{
-	lstclear(stack_a);
-	lstclear(stack_b);
-	exit(EXIT_SUCCESS);
 }

@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../include/push_swap.h"
+#include "push_swap.h"
 
 t_best	best_operation_top_half(t_list *stack_a, t_list *stack_b)
 {

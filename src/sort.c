@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../include/push_swap.h"
+#include "push_swap.h"
 #include "../libft/libft.h"
 
 void	short_sort(t_list **stack_a, t_list **stack_b, int size)
@@ -20,7 +20,7 @@ void	short_sort(t_list **stack_a, t_list **stack_b, int size)
 	else if (size == 3)
 		sort_3(stack_a);
 	else if (size == 4)
-		return ;
+		sort_4(stack_a, stack_b);
 	else if (size == 5)
 		sort_5(stack_a, stack_b);
 }
@@ -77,6 +77,16 @@ void	sort_3(t_list **stack_a)
 		action(stack_a, NULL, "rra");
 }
 
+void	sort_4(t_list **a, t_list **b)
+{
+	action(a, b, "pb");
+	if (!is_sorted(*a))
+		sort_3(a);
+	move_to_top_a(a, find_elem_min(*a, (*b)->content));
+	action(a, b, "pa");
+	move_to_top_a(a, find_elem_max(*a, lstmin(*a) + 1));
+}
+
 void	sort_5(t_list **a, t_list **b)
 {
 	action(a, b, "pb");
@@ -88,25 +98,4 @@ void	sort_5(t_list **a, t_list **b)
 	move_to_top_a(a, find_elem_min(*a, (*b)->content));
 	action(a, b, "pa");
 	move_to_top_a(a, find_elem_max(*a, lstmin(*a) + 1));
-}
-
-void	action(t_list **stack_a, t_list **stack_b, char *action)
-{
-	ft_putendl_fd(action, 1);
-	if (!ft_strncmp(action, "sa", 3) || !ft_strncmp(action, "ss", 3))
-		swap(*stack_a);
-	if (!ft_strncmp(action, "sb", 3) || !ft_strncmp(action, "ss", 3))
-		swap(*stack_b);
-	if (!ft_strncmp(action, "pa", 3))
-		push(stack_b, stack_a);
-	if (!ft_strncmp(action, "pb", 3))
-		push(stack_a, stack_b);
-	if (!ft_strncmp(action, "rra", 3) || !ft_strncmp(action, "rrr", 3))
-		r_rotate(stack_a);
-	if (!ft_strncmp(action, "rrb", 3) || !ft_strncmp(action, "rrr", 3))
-		r_rotate(stack_b);
-	if (!ft_strncmp(action, "ra", 3) || !ft_strncmp(action, "rr", 3))
-		rotate(stack_a);
-	if (!ft_strncmp(action, "rb", 3) || !ft_strncmp(action, "rr", 3))
-		rotate(stack_b);
 }
