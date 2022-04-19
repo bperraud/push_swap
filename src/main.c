@@ -13,26 +13,25 @@
 #include "push_swap.h"
 #include "../libft/libft.h"
 
-int	action(t_list **stack_a, t_list **stack_b, char *action)
+void	action(t_list **stack_a, t_list **stack_b, char *action)
 {
 	ft_putendl_fd(action, 1);
-	if (!ft_strncmp(action, "sa", 3) || !ft_strncmp(action, "ss", 3))
+	if (!ft_strcmp(action, "sa") || !ft_strcmp(action, "ss"))
 		swap(*stack_a);
-	if (!ft_strncmp(action, "sb", 3) || !ft_strncmp(action, "ss", 3))
+	if (!ft_strcmp(action, "sb") || !ft_strcmp(action, "ss"))
 		swap(*stack_b);
-	if (!ft_strncmp(action, "pa", 3))
+	if (!ft_strcmp(action, "pa"))
 		push(stack_b, stack_a);
-	if (!ft_strncmp(action, "pb", 3))
+	if (!ft_strcmp(action, "pb"))
 		push(stack_a, stack_b);
-	if (!ft_strncmp(action, "rra", 3) || !ft_strncmp(action, "rrr", 3))
+	if (!ft_strcmp(action, "rra") || !ft_strcmp(action, "rrr"))
 		r_rotate(stack_a);
-	if (!ft_strncmp(action, "rrb", 3) || !ft_strncmp(action, "rrr", 3))
+	if (!ft_strcmp(action, "rrb") || !ft_strcmp(action, "rrr"))
 		r_rotate(stack_b);
-	if (!ft_strncmp(action, "ra", 3) || !ft_strncmp(action, "rr", 3))
+	if (!ft_strcmp(action, "ra") || !ft_strcmp(action, "rr"))
 		rotate(stack_a);
-	if (!ft_strncmp(action, "rb", 3) || !ft_strncmp(action, "rr", 3))
+	if (!ft_strcmp(action, "rb") || !ft_strcmp(action, "rr"))
 		rotate(stack_b);
-	return (0);
 }
 
 int	main(int argc, char **argv)

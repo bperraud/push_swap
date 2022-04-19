@@ -31,7 +31,7 @@ typedef struct s_best
 }	t_best;
 
 //main
-int		action(t_list **stack_a, t_list **stack_b, char *action);
+void	action(t_list **stack_a, t_list **stack_b, char *action);
 
 //check
 int		has_dupplicate(t_list *lst);

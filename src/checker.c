@@ -14,50 +14,53 @@
 #include "../libft/libft.h"
 #include "../libft/get_next_line_bonus.h"
 
-
-int	double_action(t_list **stack_a, t_list **stack_b, char *action)
+static void	double_action(t_list **stack_a, t_list **stack_b, char *action)
 {
-	if (!ft_strncmp(action, "rrr", 3))
+	if (!ft_strcmp(action, "rrr\n"))
 	{
 		r_rotate(stack_a);
 		r_rotate(stack_b);
 	}
-	else if (!ft_strncmp(action, "rr\n", 3))
+	else if (!ft_strcmp(action, "rr\n"))
 	{
 		rotate(stack_a);
 		rotate(stack_b);
 	}
-	else if (!ft_strncmp(action, "ss\n", 3))
+	else if (!ft_strcmp(action, "ss\n"))
 	{
 		swap(*stack_b);
 		swap(*stack_a);
 	}
 	else
-		return (0);
-	return (1);
+	{
+		printf("action :%s\n", action);
+		printf("strlen :%li\n", ft_strlen(action));
+		ft_putendl_fd("pas normal", 2);
+		ft_putendl_fd("Error", 2);
+		free_exit(stack_a, stack_b);
+	}
 }
 
-int	action(t_list **stack_a, t_list **stack_b, char *action)
+void	action(t_list **stack_a, t_list **stack_b, char *action)
 {
-	if (!ft_strncmp(action, "sa\n", 3))
+	if (!ft_strcmp(action, "sa\n"))
 		swap(*stack_a);
-	else if (!ft_strncmp(action, "sb\n", 3))
+	else if (!ft_strcmp(action, "sb\n"))
 		swap(*stack_b);
-	else if (!ft_strncmp(action, "pa\n", 3))
+	else if (!ft_strcmp(action, "pa\n"))
 		push(stack_b, stack_a);
-	else if (!ft_strncmp(action, "pb\n", 3))
+	else if (!ft_strcmp(action, "pb\n"))
 		push(stack_a, stack_b);
-	else if (!ft_strncmp(action, "rra", 3))
+	else if (!ft_strcmp(action, "rra\n"))
 		r_rotate(stack_a);
-	else if (!ft_strncmp(action, "rrb", 3))
+	else if (!ft_strcmp(action, "rrb\n"))
 		r_rotate(stack_b);
-	else if (!ft_strncmp(action, "ra\n", 3))
+	else if (!ft_strcmp(action, "ra\n"))
 		rotate(stack_a);
-	else if (!ft_strncmp(action, "rb\n", 3))
+	else if (!ft_strcmp(action, "rb\n"))
 		rotate(stack_b);
 	else
 		return (double_action(stack_a, stack_b, action));
-	return (1);
 }
 
 void	lst_print(t_list *lst)		// penser a supprimer
@@ -73,48 +76,19 @@ void	lst_print(t_list *lst)		// penser a supprimer
 	}
 }
 
-/*
-static void	checker(t_list *stack_a, t_list *stack_b)
-
-{
-	char	*op;
-
-	op = get_next_line(0);
-	while (op)
-	{
-		if (!action(&stack_a, &stack_b, op))
-		{
-			ft_putendl_fd("Error", 2);
-			free_exit(&stack_a, &stack_b);
-		}
-		free(op);
-		op = get_next_line(0);
-	}
-
-	if (op)
-		free(op);
-
-}
-*/
-
 static void	checker(t_list **stack_a, t_list **stack_b)
 {
-	char	*op;
+	char	*act;
 
-	op = get_next_line(0);
-	while (op)
+	act = get_next_line(0);
+	while (act)
 	{
-		if (!action(stack_a, stack_b, op))
-		{
-			ft_putendl_fd("Error", 2);
-			free_exit(stack_a, stack_b);
-		}
-		free(op);
-		op = get_next_line(0);
+		action(stack_a, stack_b, act);
+		free(act);
+		act = get_next_line(0);
 	}
-	free(op);
+	free(act);
 }
-
 
 int	main(int argc, char **argv)
 {
