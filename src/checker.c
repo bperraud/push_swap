@@ -12,7 +12,7 @@
 
 #include "push_swap.h"
 #include "../libft/libft.h"
-#include "../libft/get_next_line_bonus.h"
+#include "../libft/get_next_line.h"
 
 static void	double_action(t_list **stack_a, t_list **stack_b, char *action)
 {
