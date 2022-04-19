@@ -12,34 +12,6 @@
 
 #include "get_next_line_bonus.h"
 
-size_t	ft_strlen(const char *s)
-{
-	int	i;
-
-	i = 0;
-	while (s[i])
-		i++;
-	return (i);
-}
-
-void	*ft_memchr(const void *s, int c, long n)
-{
-	const unsigned char	*cs;
-	unsigned char		uc;
-
-	cs = s;
-	uc = c;
-	while (n && *cs != uc)
-	{
-		n--;
-		cs++;
-	}
-	if (n)
-		return ((void *) cs);
-	else
-		return (NULL);
-}
-
 char	*ft_strncpy(char *dest, const char *src, long n)
 {
 	unsigned int	i;
@@ -61,25 +33,7 @@ char	*ft_strncpy(char *dest, const char *src, long n)
 	return (dest);
 }
 
-char	*ft_strjoin(char const *s1, char const *s2)
-{
-	char	*str;
-	size_t	lens1;
-	size_t	lens2;
-
-	if (!s1 || !s2)
-		return (NULL);
-	lens1 = ft_strlen(s1);
-	lens2 = ft_strlen(s2);
-	str = malloc((lens1 + lens2 + 1) * sizeof(char));
-	if (!str)
-		return (NULL);
-	ft_strncpy(str, s1, lens1);
-	ft_strncpy(str + lens1, s2, ft_strlen(s2));
-	return (str);
-}
-
-char	**ft_split(char const *str, const char c)
+char	**ft_split_gnl(char const *str, const char c)
 {
 	char	**dest;
 	int		i;

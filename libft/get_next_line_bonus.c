@@ -11,6 +11,7 @@
 /* ************************************************************************** */
 
 #include "get_next_line_bonus.h"
+#include "libft.h"
 
 char	*get_next_line(int fd)
 {
@@ -75,7 +76,7 @@ char	*end_of_line(char *line, char *buff)
 {
 	char	**split;
 
-	split = ft_split(buff, '\n');
+	split = ft_split_gnl(buff, '\n');
 	if (split)
 	{
 		line = ft_strjoin(line, split[0]);
