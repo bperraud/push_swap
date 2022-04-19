@@ -18,6 +18,7 @@
 # include <unistd.h>
 # include <limits.h>
 
+int			ft_strcmp(char *s1, char *s2);
 int			ft_atoi(const char *str);
 void		ft_bzero(void *s, size_t n);
 void		*ft_calloc(size_t count, size_t size);
