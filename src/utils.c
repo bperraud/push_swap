@@ -52,8 +52,7 @@ void	free_exit(t_list **stack_a, t_list **stack_b)
 void	exit_error(t_list *stack_a)
 {
 	ft_putendl_fd("Error", 2);
-	if (!stack_a->is_empty)
-		lstclear(&stack_a);
+	lstclear(&stack_a);
 	exit(EXIT_FAILURE);
 }
 
