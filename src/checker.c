@@ -63,19 +63,6 @@ void	action(t_list **stack_a, t_list **stack_b, char *action)
 		return (double_action(stack_a, stack_b, action));
 }
 
-void	lst_print(t_list *lst)		// penser a supprimer
-{
-	if (lst)
-	{
-		while (lst->next)
-		{
-			printf("%i\n", lst->content);
-			lst = lst->next;
-		}
-		printf("%i\n", lst->content);
-	}
-}
-
 static void	checker(t_list **stack_a, t_list **stack_b)
 {
 	char	*act;

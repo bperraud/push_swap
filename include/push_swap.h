@@ -22,13 +22,20 @@ typedef struct s_list
 	int				is_empty;
 }	t_list;
 
-
 typedef struct s_best
 {
-	int				min_operation;
+	int				min_op;
 	int				move_to_end_b;
 	int				move_to_end_a;
 }	t_best;
+
+typedef struct s_all_best
+{
+	t_best			top;
+	t_best			bot;
+	t_best			down_up;
+	t_best			up_down;
+}	t_all_best;
 
 //main
 void	action(t_list **stack_a, t_list **stack_b, char *action);
@@ -86,5 +93,13 @@ void	move_to_top_opti(t_list **stack_a, t_list **stack_b, t_best best);
 void	move_to_bot_opti(t_list **stack_a, t_list **stack_b, t_best best);
 
 t_best	best_down_up(t_list *stack_a, t_list *stack_b);
-
 t_best	best_up_down(t_list *stack_a, t_list *stack_b);
+
+
+//opti
+void	move_down_up(t_list **stack_a, t_list **stack_b, t_best best);
+void	move_up_down(t_list **stack_a, t_list **stack_b, t_best best);
+
+void	find_best_operation(t_list **stack_a, t_list **stack_b, t_all_best all_best);
+
+int		t_best_min(t_best a, t_best b, t_best c, t_best d);

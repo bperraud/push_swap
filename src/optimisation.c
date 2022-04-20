@@ -20,14 +20,14 @@ t_best	best_operation_top_half(t_list *stack_a, t_list *stack_b)
 	int		move_to_end_b;
 
 	move_to_end_a = -1;
-	s.min_operation = INT_MAX;
+	s.min_op = INT_MAX;
 	while (move_to_end_a++ <= lstsize(stack_a) / 2 + 1)
 	{
 		move_to_end_b = find_elem_max(stack_b, (stack_a)->content);
 		operation = max(move_to_end_b, move_to_end_a);
-		if (operation < s.min_operation)
+		if (operation < s.min_op)
 		{
-			s.min_operation = operation;
+			s.min_op = operation;
 			s.move_to_end_b = move_to_end_b;
 			s.move_to_end_a = move_to_end_a;
 		}
@@ -45,16 +45,16 @@ t_best	best_operation_bot_half(t_list *stack_a, t_list *stack_b)  	// marche vra
 	int		move_to_end_b;
 
 	move_to_end_a = 0;
-	s.min_operation = INT_MAX;
+	s.min_op = INT_MAX;
 	last = lstlast(stack_a);
 	while (move_to_end_a++ < (lstsize(stack_a) / 2))
 	{
 		move_to_end_b = lstsize(stack_b)
 			- find_elem_max(stack_b, last->content);
 		operation = max(move_to_end_b, move_to_end_a);
-		if (operation < s.min_operation)
+		if (operation < s.min_op)
 		{
-			s.min_operation = operation;
+			s.min_op = operation;
 			s.move_to_end_b = move_to_end_b;
 			s.move_to_end_a = move_to_end_a;
 		}
@@ -111,4 +111,20 @@ void	move_to_bot_opti(t_list **stack_a, t_list **stack_b, t_best best)
 		while (rotate--)
 			action(stack_a, stack_b, "rrb");
 	}
+}
+
+int		t_best_min(t_best a, t_best b, t_best c, t_best d)
+{
+	int	min;
+
+	min = INT_MAX;
+	if (a.min_op < min)
+		min = a.min_op;
+	if (b.min_op < min)
+		min = b.min_op;
+	if (c.min_op < min)
+		min = c.min_op;
+	if (d.min_op < min)
+		min = d.min_op;
+	return (min);
 }

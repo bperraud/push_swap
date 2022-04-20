@@ -6,7 +6,7 @@
 #    By: bperraud <bperraud@student.s19.be>         +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/03/27 16:51:35 by bperraud          #+#    #+#              #
-#    Updated: 2022/04/20 03:10:33 by bperraud         ###   ########.fr        #
+#    Updated: 2022/04/20 18:38:36 by bperraud         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,7 +14,7 @@
 SRC				= main.c linked_list.c linked_list_2.c utils.c operation.c check.c push_swap.c optimisation.c opti.c sort.c list_utils.c
 
 BONUS			= checker.c linked_list.c linked_list_2.c utils.c operation.c check.c push_swap.c optimisation.c sort.c list_utils.c
-# changer le .O bonus
+# changer le .O bonus + enlever les .c inutiles
 ### PATHS ###
 SDIR			= src
 HDIR			= include
