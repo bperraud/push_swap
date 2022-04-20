@@ -20,7 +20,6 @@ t_best	best_operation_top_half(t_list *stack_a, t_list *stack_b)
 	int		move_to_end_b;
 
 	move_to_end_a = -1;
-	move_to_end_b = 0;
 	s.min_operation = INT_MAX;
 	while (move_to_end_a++ <= lstsize(stack_a) / 2 + 1)
 	{
@@ -37,7 +36,7 @@ t_best	best_operation_top_half(t_list *stack_a, t_list *stack_b)
 	return (s);
 }
 
-t_best	best_operation_bot_half(t_list *stack_a, t_list *stack_b)
+t_best	best_operation_bot_half(t_list *stack_a, t_list *stack_b)  	// marche vraiment ?
 {
 	t_best	s;
 	t_list	*last;
@@ -45,11 +44,10 @@ t_best	best_operation_bot_half(t_list *stack_a, t_list *stack_b)
 	int		move_to_end_a;
 	int		move_to_end_b;
 
-	s.move_to_end_a = 0;
-	s.move_to_end_b = 0;
+	move_to_end_a = 0;
 	s.min_operation = INT_MAX;
 	last = lstlast(stack_a);
-	while (move_to_end_a++ < lstsize(stack_a) / 2)
+	while (move_to_end_a++ < (lstsize(stack_a) / 2))
 	{
 		move_to_end_b = lstsize(stack_b)
 			- find_elem_max(stack_b, last->content);

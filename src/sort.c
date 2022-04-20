@@ -29,6 +29,9 @@ void	sort_until_2(t_list **stack_a, t_list **stack_b, int size)
 {
 	t_best	top;
 	t_best	bot;
+	t_best	down_up;
+	t_best	up_down;
+
 	t_best	best;
 
 	size -= 2;
@@ -36,6 +39,15 @@ void	sort_until_2(t_list **stack_a, t_list **stack_b, int size)
 	{
 		top = best_operation_top_half(*stack_a, *stack_b);
 		bot = best_operation_bot_half(*stack_a, *stack_b);
+
+		down_up = best_down_up(*stack_a, *stack_b);
+		up_down = best_up_down(*stack_a, *stack_b);
+
+		/*
+		printf("top : %i\n", top.min_operation);
+		printf("bot : %i\n", bot.min_operation);
+		*/
+
 		if (top.min_operation < bot.min_operation)
 		{
 			best = top;
@@ -44,8 +56,16 @@ void	sort_until_2(t_list **stack_a, t_list **stack_b, int size)
 		else
 		{
 			best = bot;
-			move_to_top_opti(stack_a, stack_b, best);
+			//move_to_top_opti(stack_a, stack_b, best);
+			move_to_bot_opti(stack_a, stack_b, best);		// fonctionne ?
 		}
+
+		if (up_down.min_operation < top.min_operation && up_down.min_operation < bot.min_operation )
+		{
+			//printf("belle opti !\n");
+		}
+
+
 		action(stack_a, stack_b, "pb");
 	}
 }

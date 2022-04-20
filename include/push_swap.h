@@ -84,3 +84,7 @@ t_best	best_operation_top_half(t_list *stack_a, t_list *stack_b);
 t_best	best_operation_bot_half(t_list *stack_a, t_list *stack_b);
 void	move_to_top_opti(t_list **stack_a, t_list **stack_b, t_best best);
 void	move_to_bot_opti(t_list **stack_a, t_list **stack_b, t_best best);
+
+t_best	best_down_up(t_list *stack_a, t_list *stack_b);
+
+t_best	best_up_down(t_list *stack_a, t_list *stack_b);
