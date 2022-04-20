@@ -10,8 +10,12 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "stdlib.h"
-#include "limits.h"
+#ifndef PUSH_SWAP_H
+# define PUSH_SWAP_H
+
+# include "stdlib.h"
+# include "limits.h"
+# include "../libft/libft.h"
 
 typedef struct s_list
 {
@@ -98,3 +102,5 @@ void	move_down_up(t_list **stack_a, t_list **stack_b, t_best best);
 void	move_up_down(t_list **stack_a, t_list **stack_b, t_best best);
 void	find_best_op(t_list **stack_a, t_list **stack_b, t_op op);
 int		t_best_min(t_best a, t_best b, t_best c, t_best d);
+
+#endif

@@ -6,7 +6,7 @@
 #    By: bperraud <bperraud@student.s19.be>         +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/03/27 16:51:35 by bperraud          #+#    #+#              #
-#    Updated: 2022/04/20 19:12:25 by bperraud         ###   ########.fr        #
+#    Updated: 2022/04/20 19:12:54 by bperraud         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -47,7 +47,7 @@ $(ODIR)/%.o: 	$(SDIR)/%.c
 
 bonus:			tmp $(NAMEB)
 
-all:			tmp $(NAMEB)
+all:			tmp $(NAME)
 
 tmp:
 				mkdir -p objs

@@ -19,10 +19,16 @@ t_list	*lst_init(int argc, char **argv)
 
 	lst = malloc(sizeof(t_list));
 	lst->is_empty = 1;
+	if (!ft_strlen(argv[1]))
+		exit_error(lst);
 	lstadd_back(&lst, lstnew(atoi_lst(argv[1], lst)));
 	i = 1;
 	while (i++ < argc - 1)
+	{
+		if (!ft_strlen(argv[i]))
+			exit_error(lst);
 		lstadd_back(&lst, lstnew(atoi_lst(argv[i], lst)));
+	}
 	return (lst);
 }
 
