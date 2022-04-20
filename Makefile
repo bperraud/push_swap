@@ -6,15 +6,14 @@
 #    By: bperraud <bperraud@student.s19.be>         +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/03/27 16:51:35 by bperraud          #+#    #+#              #
-#    Updated: 2022/04/20 18:38:36 by bperraud         ###   ########.fr        #
+#    Updated: 2022/04/20 19:12:25 by bperraud         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 ### SOURCES FILES ###
 SRC				= main.c linked_list.c linked_list_2.c utils.c operation.c check.c push_swap.c optimisation.c opti.c sort.c list_utils.c
+BONUS			= checker.c linked_list.c linked_list_2.c utils.c operation.c check.c list_utils.c
 
-BONUS			= checker.c linked_list.c linked_list_2.c utils.c operation.c check.c push_swap.c optimisation.c sort.c list_utils.c
-# changer le .O bonus + enlever les .c inutiles
 ### PATHS ###
 SDIR			= src
 HDIR			= include
@@ -26,8 +25,7 @@ BONUS_OBJ		= $(addprefix $(ODIR)/, $(BONUS:.c=.o))
 
 ### COMPILATION ###
 CC				= gcc
-#CFLAGS			= -Wall -Wextra -Werror -Iinclude
-CFLAGS			= -Iinclude
+CFLAGS			= -Wall -Wextra -Werror -Iinclude
 RM				= rm -f
 
 ### EXECUTABLE ###

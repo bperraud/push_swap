@@ -21,8 +21,8 @@ int	lstmax(t_list *lst)
 	{
 		while (lst)
 		{
-			if (lst->content > max)
-				max = lst->content;
+			if (lst->cont > max)
+				max = lst->cont;
 			lst = lst->next;
 		}
 	}
@@ -38,8 +38,8 @@ int	lstmin(t_list *lst)
 	{
 		while (lst)
 		{
-			if (lst->content < min)
-				min = lst->content;
+			if (lst->cont < min)
+				min = lst->cont;
 			lst = lst->next;
 		}
 	}
@@ -59,9 +59,9 @@ int	lstmin_position(t_list *lst)
 	{
 		while (lst)
 		{
-			if (lst->content < min)
+			if (lst->cont < min)
 			{
-				min = lst->content;
+				min = lst->cont;
 				position = pos;
 			}
 			lst = lst->next;
@@ -84,9 +84,9 @@ int	lstmax_position(t_list *lst)
 	{
 		while (lst)
 		{
-			if (lst->content > max)
+			if (lst->cont > max)
 			{
-				max = lst->content;
+				max = lst->cont;
 				position = pos;
 			}
 			lst = lst->next;

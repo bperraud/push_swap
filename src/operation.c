@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   operation.c                                        :+:      :+:    :+:   */
+/*   op.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bperraud <bperraud@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -21,9 +21,9 @@ void	swap(t_list *lst)
 	if (lst->is_empty)
 		return ;
 	list = lst->next;
-	temp = list->content;
-	list->content = lst->content;
-	lst->content = temp;
+	temp = list->cont;
+	list->cont = lst->cont;
+	lst->cont = temp;
 }
 
 //push top of stack a to b
@@ -31,7 +31,7 @@ void	push(t_list **a, t_list **b)
 {
 	if ((*a)->is_empty)
 		return ;
-	lstadd_front(b, lstnew((*a)->content));
+	lstadd_front(b, lstnew((*a)->cont));
 	lstdel_front(a);
 }
 

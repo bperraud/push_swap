@@ -58,7 +58,7 @@ t_list	*lstlast(t_list *lst)
 	return (lst);
 }
 
-t_list	*lstnew(int content)
+t_list	*lstnew(int cont)
 {
 	t_list	*list;
 
@@ -67,7 +67,7 @@ t_list	*lstnew(int content)
 		return (NULL);
 	list->next = NULL;
 	list->previous = NULL;
-	list->content = content;
+	list->cont = cont;
 	list->is_empty = 0;
 	return (list);
 }

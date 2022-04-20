@@ -16,21 +16,21 @@
 t_best	best_down_up(t_list *stack_a, t_list *stack_b)
 {
 	t_best	s;
-	int		operation;
-	int		move_to_end_a;
-	int		move_to_end_b;
+	int		op;
+	int		move_end_a;
+	int		move_end_b;
 
-	move_to_end_a = -1;
+	move_end_a = -1;
 	s.min_op = INT_MAX;
-	while (move_to_end_a++ <= lstsize(stack_a))
+	while (move_end_a++ <= lstsize(stack_a))
 	{
-		move_to_end_b = lstsize(stack_b) - find_elem_max(stack_b, (stack_a)->content) ;
-		operation = move_to_end_b + move_to_end_a;
-		if (operation < s.min_op)
+		move_end_b = lstsize(stack_b) - find_elem_max(stack_b, stack_a->cont);
+		op = move_end_b + move_end_a;
+		if (op < s.min_op)
 		{
-			s.min_op = operation;
-			s.move_to_end_b = move_to_end_b;
-			s.move_to_end_a = move_to_end_a;
+			s.min_op = op;
+			s.move_end_b = move_end_b;
+			s.move_end_a = move_end_a;
 		}
 		stack_a = (stack_a)->next;
 	}
@@ -41,70 +41,56 @@ t_best	best_up_down(t_list *stack_a, t_list *stack_b)
 {
 	t_best	s;
 	t_list	*last;
-	int		operation;
-	int		move_to_end_a;
-	int		move_to_end_b;
+	int		op;
+	int		move_end_a;
+	int		move_end_b;
 
-	move_to_end_a = 0 ;		// peut être opti
+	move_end_a = 0 ;
 	s.min_op = INT_MAX;
 	last = lstlast(stack_a);
 	while (last)
 	{
-		move_to_end_a++;
-		move_to_end_b = find_elem_max(stack_b, last->content);
-		operation = move_to_end_b + move_to_end_a;
-		if (operation < s.min_op)
+		move_end_a++;
+		move_end_b = find_elem_max(stack_b, last->cont);
+		op = move_end_b + move_end_a;
+		if (op < s.min_op)
 		{
-			s.min_op = operation;
-			s.move_to_end_b = move_to_end_b;
-			s.move_to_end_a = move_to_end_a;
+			s.min_op = op;
+			s.move_end_b = move_end_b;
+			s.move_end_a = move_end_a;
 		}
 		last = last->previous;
 	}
 	return (s);
 }
 
-void	lst_print(t_list *lst)
-{
-	if (lst)
-	{
-		while (lst->next)
-		{
-			printf("%i\n", lst->content);
-			lst = lst->next;
-		}
-		printf("%i\n", lst->content);
-	}
-}
-
 void	move_down_up(t_list **stack_a, t_list **stack_b, t_best best)
 {
-	while(best.move_to_end_a--)
+	while (best.move_end_a--)
 		action(stack_a, stack_b, "ra");
-	while(best.move_to_end_b--)
+	while (best.move_end_b--)
 		action(stack_a, stack_b, "rrb");
 }
 
 void	move_up_down(t_list **stack_a, t_list **stack_b, t_best best)
 {
-	while(best.move_to_end_a--)
+	while (best.move_end_a--)
 		action(stack_a, stack_b, "rra");
-	while(best.move_to_end_b--)
+	while (best.move_end_b--)
 		action(stack_a, stack_b, "rb");
 }
 
-
-void	find_best_operation(t_list **stack_a, t_list **stack_b, t_all_best all_best)
+void	find_best_op(t_list **stack_a, t_list **stack_b, t_op op)
 {
 	int	min_op;
 
-	min_op = t_best_min(all_best.top, all_best.bot, all_best.down_up, all_best.up_down);
-	if (all_best.top.min_op == min_op)
-		move_to_top_opti(stack_a, stack_b, all_best.top);
-	else if (all_best.bot.min_op == min_op)
-		move_to_bot_opti(stack_a, stack_b, all_best.bot);
-	else if (all_best.down_up.min_op == min_op)
-		move_down_up(stack_a, stack_b, all_best.down_up);
-	else if (all_best.up_down.min_op == min_op)
-		move_up_down(stack_a, stack_b, all_best.up_down);
+	min_op = t_best_min(op.top, op.bot, op.down_up, op.up_down);
+	if (op.top.min_op == min_op)
+		move_top_opti(stack_a, stack_b, op.top);
+	else if (op.bot.min_op == min_op)
+		move_bot_opti(stack_a, stack_b, op.bot);
+	else if (op.down_up.min_op == min_op)
+		move_down_up(stack_a, stack_b, op.down_up);
+	else if (op.up_down.min_op == min_op)
+		move_up_down(stack_a, stack_b, op.up_down);
 }

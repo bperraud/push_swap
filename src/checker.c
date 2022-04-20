@@ -33,9 +33,6 @@ static void	double_action(t_list **stack_a, t_list **stack_b, char *action)
 	}
 	else
 	{
-		printf("action :%s\n", action);
-		printf("strlen :%li\n", ft_strlen(action));
-		ft_putendl_fd("pas normal", 2);
 		ft_putendl_fd("Error", 2);
 		free_exit(stack_a, stack_b);
 	}
@@ -94,9 +91,7 @@ int	main(int argc, char **argv)
 	}
 	if (is_sorted(stack_a))
 		free_exit(&stack_a, &stack_b);
-
 	checker(&stack_a, &stack_b);
-
 	if (is_sorted(stack_a))
 		ft_putendl_fd("OK", 1);
 	else

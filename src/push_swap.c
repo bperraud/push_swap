@@ -23,11 +23,11 @@ void	push_swap(t_list **stack_a, t_list **stack_b)
 	else
 	{
 		sort_until_2(stack_a, stack_b, size);
-		move_to_top_b(stack_b, find_elem_max(*stack_b, (*stack_a)->content));
+		move_top_b(stack_b, find_elem_max(*stack_b, (*stack_a)->cont));
 		action(stack_a, stack_b, "pb");
-		move_to_top_b(stack_b, find_elem_max(*stack_b, (*stack_a)->content));
+		move_top_b(stack_b, find_elem_max(*stack_b, (*stack_a)->cont));
 		action(stack_a, stack_b, "pb");
-		move_to_top_b(stack_b, find_elem_max(*stack_b, lstmax(*stack_b) + 1));
+		move_top_b(stack_b, find_elem_max(*stack_b, lstmax(*stack_b) + 1));
 		size = lstsize(*stack_b);
 		while (size--)
 			action(stack_a, stack_b, "pa");
@@ -50,10 +50,10 @@ int	find_elem_max(t_list *stack_b, int compare)
 	max = INT_MIN;
 	while (stack_b)
 	{
-		if (stack_b->content > max && stack_b->content < compare)
+		if (stack_b->cont > max && stack_b->cont < compare)
 		{
 			bool = 0;
-			max = stack_b->content;
+			max = stack_b->cont;
 			position = i;
 		}
 		i += 1;
@@ -64,7 +64,7 @@ int	find_elem_max(t_list *stack_b, int compare)
 	return (position);
 }
 
-void	move_to_top_a(t_list **stack_a, int position)
+void	move_top_a(t_list **stack_a, int position)
 {
 	int	size;
 
@@ -84,8 +84,8 @@ void	move_to_top_a(t_list **stack_a, int position)
 	}
 }
 
-// rotate or shift stack_b, while content not in position place
-void	move_to_top_b(t_list **stack_b, int position)
+// rotate or shift stack_b, while cont not in position place
+void	move_top_b(t_list **stack_b, int position)
 {
 	int	size;
 
@@ -121,10 +121,10 @@ int	find_elem_min(t_list *stack_b, int compare)
 	min = INT_MAX;
 	while (stack_b)
 	{
-		if (stack_b->content < min && stack_b->content > compare)
+		if (stack_b->cont < min && stack_b->cont > compare)
 		{
 			bool = 0;
-			min = stack_b->content;
+			min = stack_b->cont;
 			position = i;
 		}
 		i += 1;

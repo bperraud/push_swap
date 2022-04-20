@@ -21,7 +21,7 @@ int	has_dupplicate(t_list *lst)
 		comp = lst;
 		while (comp->next)
 		{
-			if (comp->next->content == lst->content)
+			if (comp->next->cont == lst->cont)
 				return (1);
 			comp = comp->next;
 		}
@@ -34,7 +34,7 @@ int	is_sorted(t_list *lst)
 {
 	while (lst->next)
 	{
-		if (lst->content > lst->next->content)
+		if (lst->cont > lst->next->cont)
 			return (0);
 		lst = lst->next;
 	}

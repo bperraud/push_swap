@@ -12,108 +12,108 @@
 
 #include "push_swap.h"
 
-t_best	best_operation_top_half(t_list *stack_a, t_list *stack_b)
+t_best	best_op_top_half(t_list *stack_a, t_list *stack_b)
 {
 	t_best	s;
-	int		operation;
-	int		move_to_end_a;
-	int		move_to_end_b;
+	int		op;
+	int		move_end_a;
+	int		move_end_b;
 
-	move_to_end_a = -1;
+	move_end_a = -1;
 	s.min_op = INT_MAX;
-	while (move_to_end_a++ <= lstsize(stack_a) / 2 + 1)
+	while (move_end_a++ <= lstsize(stack_a) / 2 + 1)
 	{
-		move_to_end_b = find_elem_max(stack_b, (stack_a)->content);
-		operation = max(move_to_end_b, move_to_end_a);
-		if (operation < s.min_op)
+		move_end_b = find_elem_max(stack_b, (stack_a)->cont);
+		op = max(move_end_b, move_end_a);
+		if (op < s.min_op)
 		{
-			s.min_op = operation;
-			s.move_to_end_b = move_to_end_b;
-			s.move_to_end_a = move_to_end_a;
+			s.min_op = op;
+			s.move_end_b = move_end_b;
+			s.move_end_a = move_end_a;
 		}
 		stack_a = (stack_a)->next;
 	}
 	return (s);
 }
 
-t_best	best_operation_bot_half(t_list *stack_a, t_list *stack_b)  	// marche vraiment ?
+t_best	best_op_bot_half(t_list *stack_a, t_list *stack_b)
 {
 	t_best	s;
 	t_list	*last;
-	int		operation;
-	int		move_to_end_a;
-	int		move_to_end_b;
+	int		op;
+	int		move_end_a;
+	int		move_end_b;
 
-	move_to_end_a = 0;
+	move_end_a = 0;
 	s.min_op = INT_MAX;
 	last = lstlast(stack_a);
-	while (move_to_end_a++ < (lstsize(stack_a) / 2))
+	while (move_end_a++ < (lstsize(stack_a) / 2))
 	{
-		move_to_end_b = lstsize(stack_b)
-			- find_elem_max(stack_b, last->content);
-		operation = max(move_to_end_b, move_to_end_a);
-		if (operation < s.min_op)
+		move_end_b = lstsize(stack_b)
+			- find_elem_max(stack_b, last->cont);
+		op = max(move_end_b, move_end_a);
+		if (op < s.min_op)
 		{
-			s.min_op = operation;
-			s.move_to_end_b = move_to_end_b;
-			s.move_to_end_a = move_to_end_a;
+			s.min_op = op;
+			s.move_end_b = move_end_b;
+			s.move_end_a = move_end_a;
 		}
 		last = last->previous;
 	}
 	return (s);
 }
 
-void	move_to_top_opti(t_list **stack_a, t_list **stack_b, t_best best)
+void	move_top_opti(t_list **stack_a, t_list **stack_b, t_best best)
 {
 	int	rrotate;
 	int	rotate;
 
-	if (best.move_to_end_a && best.move_to_end_b)
+	if (best.move_end_a && best.move_end_b)
 	{
-		rrotate = min(best.move_to_end_a, best.move_to_end_b);
+		rrotate = min(best.move_end_a, best.move_end_b);
 		while (rrotate--)
 			action(stack_a, stack_b, "rr");
 	}
-	if (best.move_to_end_a > best.move_to_end_b)
+	if (best.move_end_a > best.move_end_b)
 	{
-		rotate = best.move_to_end_a - best.move_to_end_b;
+		rotate = best.move_end_a - best.move_end_b;
 		while (rotate--)
 			action(stack_a, stack_b, "ra");
 	}
 	else
 	{
-		rotate = best.move_to_end_b - best.move_to_end_a;
+		rotate = best.move_end_b - best.move_end_a;
 		while (rotate--)
 			action(stack_a, stack_b, "rb");
 	}
 }
 
-void	move_to_bot_opti(t_list **stack_a, t_list **stack_b, t_best best)
+void	move_bot_opti(t_list **stack_a, t_list **stack_b, t_best best)
 {
 	int	rrotate;
 	int	rotate;
 
-	if (best.move_to_end_a && best.move_to_end_b)
+	if (best.move_end_a && best.move_end_b)
 	{
-		rrotate = min(best.move_to_end_a, best.move_to_end_b);
+		rrotate = min(best.move_end_a, best.move_end_b);
 		while (rrotate--)
 			action(stack_a, stack_b, "rrr");
 	}
-	if (best.move_to_end_a > best.move_to_end_b)
+	if (best.move_end_a > best.move_end_b)
 	{
-		rotate = best.move_to_end_a - best.move_to_end_b;
+		rotate = best.move_end_a - best.move_end_b;
 		while (rotate--)
 			action(stack_a, stack_b, "rra");
 	}
 	else
 	{
-		rotate = best.move_to_end_b - best.move_to_end_a;
+		rotate = best.move_end_b - best.move_end_a;
 		while (rotate--)
 			action(stack_a, stack_b, "rrb");
 	}
 }
 
-int		t_best_min(t_best a, t_best b, t_best c, t_best d)
+int	t_best_min(t_best a, t_best b, t_best c, t_best d)
 {
 	int	min;
 

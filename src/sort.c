@@ -27,17 +27,16 @@ void	short_sort(t_list **stack_a, t_list **stack_b, int size)
 
 void	sort_until_2(t_list **stack_a, t_list **stack_b, int size)
 {
-	t_all_best all_best;
+	t_op	op;
 
 	size -= 2;
 	while (size--)
 	{
-		all_best.top = best_operation_top_half(*stack_a, *stack_b);
-		all_best.bot = best_operation_bot_half(*stack_a, *stack_b);
-		all_best.down_up = best_down_up(*stack_a, *stack_b);
-		all_best.up_down = best_up_down(*stack_a, *stack_b);
-
-		find_best_operation(stack_a, stack_b, all_best);
+		op.top = best_op_top_half(*stack_a, *stack_b);
+		op.bot = best_op_bot_half(*stack_a, *stack_b);
+		op.down_up = best_down_up(*stack_a, *stack_b);
+		op.up_down = best_up_down(*stack_a, *stack_b);
+		find_best_op(stack_a, stack_b, op);
 		action(stack_a, stack_b, "pb");
 	}
 }
@@ -47,25 +46,25 @@ void	sort_3(t_list **stack_a)
 	t_list	*a;
 
 	a = *stack_a;
-	if (a->content < a->next->next->content && a->content > a->next->content)
+	if (a->cont < a->next->next->cont && a->cont > a->next->cont)
 		action(stack_a, NULL, "sa");
-	else if (a->content > a->next->content
-		&& a->next->content > a->next->next->content)
+	else if (a->cont > a->next->cont
+		&& a->next->cont > a->next->next->cont)
 	{
 		action(stack_a, NULL, "sa");
 		action(stack_a, NULL, "rra");
 	}
-	else if (a->next->next->content > a->next->content
-		&& a->content > a->next->next->content)
+	else if (a->next->next->cont > a->next->cont
+		&& a->cont > a->next->next->cont)
 		action(stack_a, NULL, "ra");
-	else if (a->content < a->next->next->content
-		&& a->content < a->next->content)
+	else if (a->cont < a->next->next->cont
+		&& a->cont < a->next->cont)
 	{
 		action(stack_a, NULL, "sa");
 		action(stack_a, NULL, "ra");
 	}
-	else if (a->content < a->next->content
-		&& a->content > a->next->next->content)
+	else if (a->cont < a->next->cont
+		&& a->cont > a->next->next->cont)
 		action(stack_a, NULL, "rra");
 }
 
@@ -74,9 +73,9 @@ void	sort_4(t_list **a, t_list **b)
 	action(a, b, "pb");
 	if (!is_sorted(*a))
 		sort_3(a);
-	move_to_top_a(a, find_elem_min(*a, (*b)->content));
+	move_top_a(a, find_elem_min(*a, (*b)->cont));
 	action(a, b, "pa");
-	move_to_top_a(a, find_elem_max(*a, lstmin(*a) + 1));
+	move_top_a(a, find_elem_max(*a, lstmin(*a) + 1));
 }
 
 void	sort_5(t_list **a, t_list **b)
@@ -85,9 +84,9 @@ void	sort_5(t_list **a, t_list **b)
 	action(a, b, "pb");
 	if (!is_sorted(*a))
 		sort_3(a);
-	move_to_top_a(a, find_elem_min(*a, (*b)->content));
+	move_top_a(a, find_elem_min(*a, (*b)->cont));
 	action(a, b, "pa");
-	move_to_top_a(a, find_elem_min(*a, (*b)->content));
+	move_top_a(a, find_elem_min(*a, (*b)->cont));
 	action(a, b, "pa");
-	move_to_top_a(a, find_elem_max(*a, lstmin(*a) + 1));
+	move_top_a(a, find_elem_max(*a, lstmin(*a) + 1));
 }
