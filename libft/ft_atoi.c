@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h" 
+#include "libft.h"
 
 static int	space(const char *str, int i)
 {
@@ -47,4 +47,3 @@ int	ft_atoi(const char *str)
 	}
 	return ((int)(res * neg));
 }
-

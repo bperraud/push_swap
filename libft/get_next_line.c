@@ -6,7 +6,7 @@
 /*   By: bperraud <bperraud@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/28 15:22:45 by bperraud          #+#    #+#             */
-/*   Updated: 2022/04/19 04:28:40 by bperraud         ###   ########.fr       */
+/*   Updated: 2022/04/21 16:16:09 by bperraud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -86,10 +86,9 @@ char	*get_next_line(int fd)
 		return (NULL);
 	*line = '\0';
 	n = 1;
-	while (n > 0 && (ft_strlen_gnl(line) == 0 || line[ft_strlen_gnl(line) - 1] != '\n'))
-	{
+	while (n > 0 && (ft_strlen_gnl(line) == 0
+			|| line[ft_strlen_gnl(line) - 1] != '\n'))
 		n = read_next_line(fd, buffer, stc_line, &line);
-	}
 	if (!line)
 		return (NULL);
 	if (*line)

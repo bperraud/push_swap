@@ -101,5 +101,4 @@ int	main(int argc, char **argv)
 	else
 		ft_putendl_fd("KO", 1);
 	free_exit(&stack_a, &stack_b);
-	return (0);
 }
