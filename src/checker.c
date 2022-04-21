@@ -83,6 +83,8 @@ int	main(int argc, char **argv)
 		return (0);
 	stack_a = lst_init(argc, argv);
 	stack_b = malloc(sizeof(t_list));
+	if (!stack_b)
+		free_exit(&stack_a, NULL);
 	stack_b->is_empty = 1;
 	if (has_dupplicate(stack_a))
 	{

@@ -6,7 +6,7 @@
 #    By: bperraud <bperraud@student.s19.be>         +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/03/27 16:51:35 by bperraud          #+#    #+#              #
-#    Updated: 2022/04/20 19:12:54 by bperraud         ###   ########.fr        #
+#    Updated: 2022/04/21 00:31:25 by bperraud         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -32,6 +32,8 @@ RM				= rm -f
 NAME			= push_swap
 NAMEB			= checker
 
+all:			tmp $(NAME)
+
 ### LINK ###
 $(NAME):		$(OBJ)
 				$(MAKE) -C ./libft
@@ -46,8 +48,6 @@ $(ODIR)/%.o: 	$(SDIR)/%.c
 				$(CC) $(CFLAGS) -c $< -o $@
 
 bonus:			tmp $(NAMEB)
-
-all:			tmp $(NAME)
 
 tmp:
 				mkdir -p objs
