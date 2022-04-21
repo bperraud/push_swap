@@ -31,11 +31,11 @@ int	atoi_lst(const char *str, t_list *stack_a)
 		i++;
 	while (str[i] >= '0' && str[i] <= '9')
 	{
-		if ((res * 10 > INT_MAX) && neg == 1)
-			exit_error(stack_a);
-		if ((res * 10 - 1 > INT_MAX) && neg == -1)
-			exit_error(stack_a);
 		res = res * 10 + str[i++] - '0';
+		if ((res > INT_MAX) && neg == 1)
+			exit_error(stack_a);
+		if ((res - 1 > INT_MAX) && neg == -1)
+			exit_error(stack_a);
 	}
 	if (str[i] != '\0' || ((str[0] == '-' || str[0] == '+') && i == 1))
 		exit_error(stack_a);

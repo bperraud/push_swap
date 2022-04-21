@@ -20,6 +20,8 @@ t_list	*lst_init(int argc, char **argv)
 	lst = malloc(sizeof(t_list));
 	if (!lst)
 		exit(EXIT_FAILURE);
+	lst->next = NULL;
+	lst->previous = NULL;
 	lst->is_empty = 1;
 	i = 0;
 	while (i++ < argc - 1)
