@@ -57,6 +57,4 @@ push_swap: `./push_swap 0 2 3 1`
 
 Testing can be done by piping the output of push_swap operation to the checker :
 
-![GitHub Logo](https://github.com/bperraud/push_swap/testing.png)
-
-
+![alt text](https://github.com/bperraud/push_swap/main/testing.png?raw=true)
