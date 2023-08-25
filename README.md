@@ -17,9 +17,9 @@
 <h3 align="center">
 	<a href="#about-the-project">About</a>
 	<span> · </span>
-	<a href="#Compilation">Compilation</a>
+	<a href="#compilation">Compilation</a>
 	<span> · </span>
-	<a href="#Execute">Execute</a>
+	<a href="#execute">Execute</a>
 </h3>
 
 ## About the project
@@ -46,8 +46,8 @@ This project contains 2 programs:
 
 ## Compilation
 
-- make to create the push_swap executable
-- make bonus to create the checker executable
+- `make` to create the push_swap executable
+- `make bonus` to create the checker executable
 
 ## Execute
 
@@ -57,6 +57,6 @@ push_swap: `./push_swap 0 2 3 1`
 
 Testing can be done by piping the output of push_swap operation to the checker :
 
-![GitHub Logo](https://github.com/bperraud/push_swap/raw/testing.png)
+![GitHub Logo](https://github.com/bperraud/push_swap/testing.png)
 
 
