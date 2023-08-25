@@ -56,3 +56,6 @@ checker: `./checker 0 2 3 1` then program's waiting for user input
 push_swap: `./push_swap 0 2 3 1`
 
 Testing can be done by piping the output of push_swap operation to the checker :
+
+![testing](https://github.com/bperraud/push_swap/assets/93911934/af8e3b7d-7015-47df-a3dc-9c758e9c7f27)
+
