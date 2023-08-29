@@ -1,6 +1,4 @@
-<h1 align="center">
-	Push Swap
-</h1>
+# Push Swap
 
 <p align="center">
 	<img alt="GitHub code size in bytes" src="https://img.shields.io/github/languages/code-size/bperraud/push_swap?color=lightblue" />
