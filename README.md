@@ -1,13 +1,5 @@
 # Push Swap
 
-<p align="center">
-	<img alt="GitHub code size in bytes" src="https://img.shields.io/github/languages/code-size/bperraud/push_swap?color=lightblue" />
-	<img alt="Number of lines of code" src="https://img.shields.io/tokei/lines/github/bperraud/push_swap?color=critical" />
-	<img alt="Code language count" src="https://img.shields.io/github/languages/count/bperraud/push_swap?color=yellow" />
-	<img alt="GitHub top language" src="https://img.shields.io/github/languages/top/bperraud/push_swap?color=blue" />
-	<img alt="GitHub last commit" src="https://img.shields.io/github/last-commit/bperraud/push_swap?color=green" />
-</p>
-
 ## About the project
 
 The **push_swap** project is a very simple and highly effective algorithm project: data will need to be sorted. You have at your disposal a set of int values, 2 stacks and a set of instructions to manipulate both stacks.
