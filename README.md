@@ -14,14 +14,6 @@
 	<img alt="GitHub last commit" src="https://img.shields.io/github/last-commit/bperraud/push_swap?color=green" />
 </p>
 
-<h3 align="center">
-	<a href="#about-the-project">About</a>
-	<span> · </span>
-	<a href="#compilation">Compilation</a>
-	<span> · </span>
-	<a href="#execute">Execute</a>
-</h3>
-
 ## About the project
 
 The **push_swap** project is a very simple and highly effective algorithm project: data will need to be sorted. You have at your disposal a set of int values, 2 stacks and a set of instructions to manipulate both stacks.
