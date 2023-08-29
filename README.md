@@ -3,10 +3,6 @@
 </h1>
 
 <p align="center">
-	<b><i>42 Algorithm Project - Sort problem</i></b><br>
-</p>
-
-<p align="center">
 	<img alt="GitHub code size in bytes" src="https://img.shields.io/github/languages/code-size/bperraud/push_swap?color=lightblue" />
 	<img alt="Number of lines of code" src="https://img.shields.io/tokei/lines/github/bperraud/push_swap?color=critical" />
 	<img alt="Code language count" src="https://img.shields.io/github/languages/count/bperraud/push_swap?color=yellow" />
