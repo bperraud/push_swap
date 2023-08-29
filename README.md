@@ -1,4 +1,4 @@
-# Push Swap
+# push_swap
 
 ## About the project
 
